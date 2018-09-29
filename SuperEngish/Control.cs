@@ -331,7 +331,7 @@ public class Control{
 				
 		}
 
-		Событие изменения значения секунд Уровня сложности
+		//Событие изменения значения секунд Уровня сложности
 			
 		void _variableGlobal_ValueChangedSecLevel(object sender, EventArgs e)
 		{
