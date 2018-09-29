@@ -1,0 +1,29 @@
+﻿wait	[weıt]	ждать
+walk	[wɔ:k]	ходить
+watch	[wɒtʃ]	смотреть
+watch TV	[wɒtʃ] [͵ti:ʹvi:]	смотреть телевизор
+water	[ʹwɔ:tə]	вода
+we	[wi:]	мы
+wear	[weə]	носить (одежду)
+Wednesday	[ʹwenzdı]	среда
+week	[wi:k]	неделя
+Well done!	[wel] [dʌn]!	Хорошо!, Отлично!, Молодец!
+wet	[wet]	мокрый
+whale	[weıl]	кит
+what	[wɒt]	что?
+where	[weə]	где?
+white	[waıt]	белый
+wide	[waıd]	широкий
+wild	[waıld]	дикий
+win	[wın]	победить, выиграть
+winner	[ʹwınə]	победитель
+winter	[ʹwıntə]	зима
+with	[wıð]	с, вместе c
+woman	[ʹwʋmən]	женщина
+wool	[wʋl]	шерсть
+word	[wɜ:d]	слово
+work	[wɜ:k]	работать
+world	[wɜ:ld]	мир, Земля
+worm	[wɜ:m]	червяк
+write	[raıt]	писать
+writer	[ʹraıtə]	писатель

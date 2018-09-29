@@ -1,0 +1,15 @@
+F:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.dll
+F:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
+F:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
+F:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
+F:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb
+H:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.dll
+H:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
+H:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
+H:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
+H:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb
+G:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.dll
+G:\dev\SuperEngish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
+G:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
+G:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
+G:\dev\SuperEngish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb

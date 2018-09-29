@@ -1,0 +1,10 @@
+H:\dev\SuperEngish\SuperEngish\obj\Release\SuperEngish.csprojResolveAssemblyReference.cache
+H:\dev\SuperEngish\SuperEngish\obj\Release\SuperEngish.FormError.resources
+H:\dev\SuperEngish\SuperEngish\obj\Release\SuperEngish.MainForm.resources
+H:\dev\SuperEngish\SuperEngish\obj\Release\SuperEngish.csproj.GenerateResource.Cache
+H:\dev\SuperEngish\SuperEngish\bin\Release\SuperEngish.exe.config
+H:\dev\SuperEngish\SuperEngish\bin\Release\SuperEngish.exe
+H:\dev\SuperEngish\SuperEngish\bin\Release\NAudio.dll
+H:\dev\SuperEngish\SuperEngish\bin\Release\SuperEngish.BL.dll
+H:\dev\SuperEngish\SuperEngish\bin\Release\NAudio.xml
+H:\dev\SuperEngish\SuperEngish\obj\Release\SuperEngish.exe

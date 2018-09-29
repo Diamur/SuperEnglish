@@ -1,0 +1,17 @@
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\zuzeTransalor.exe
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\zuzeTransalor.pdb
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.Form1.resources
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.Properties.Resources.resources
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.exe
+c:\users\zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.pdb
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\zuzeTransalor.exe.config
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\GoogleTranslateAPI.dll
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\GoogleTranslateAPI.pdb
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\bin\Debug\GoogleTranslateAPI.xml
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.Help.resources
+C:\Users\Zouhir\documents\visual studio 2010\Projects\zuzeTransalor\zuzeTransalor\obj\x86\Debug\zuzeTransalor.About.resources

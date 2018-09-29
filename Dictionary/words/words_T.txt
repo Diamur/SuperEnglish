@@ -1,0 +1,48 @@
+﻿table	[ʹteıb(ə)l]	стол
+tail	[teıl]	хвост
+take	[teık]	брать
+talk	[tɔ:k]	говорить, разговаривать
+tall	[tɔ:l]	высокий
+taste	[teıst]	пробовать (на вкус)
+teacher	[ʹti:tʃə]	учитель, учительница
+ten	[ten]	десять
+tentacle	[ʹtentək(ə)l]	щупальце
+test	[test]	тест; контрольная работа
+Thailand	[ʹtaılænd]	Таиланд (государство в Азии) 
+that	[ðæt]	тот, та, то
+their	[ðeə]	их
+these	[ði:z]	эти
+they	[ðeı]	они
+thing	[θıŋ]	вещь, предмет
+think	[θıŋk]	думать
+third	[θɜ:d]	третий (по счёту)
+thirsty	[ʹθɜ:stı]	испытывающий жажду
+thirteen	[͵θɜ:ʹti:n]	тринадцать
+this	[ðıs]	этот, эта, это
+those	[ðəʋz]	те
+three	[θri:]	три
+throw	[θrəʋ]	бросать, кидать
+Thursday	[ʹθɜ:zdı]	четверг
+tie	[taı]	галстук
+tiger	[ʹtaıgə]	тигр
+time	[taım]	время
+tired	[ʹtaıəd]	усталый
+today	[təʹdeı]	сегодня
+together	[təʹgeðə]	вместе
+tomorrow	[təʹmɒrəʋ]	завтра
+tooth	[tu:θ]	зуб
+touch	[tʌtʃ]	трогать; осязать
+towel	[ʹtaʋəl]	полотенце
+town	[taʋn]	город
+toy	[tɔı]	игрушка
+trainers	[ʹtreınə's]	кроссовки
+tree	[tri:]	дерево
+trick	[trık]	хитрость; проделка
+trousers	[ʹtraʋzəz]	брюки
+T-shirt	[ti:]-[ʃɜ:t]	футболка
+Tuesday	[ʹtju:zdı]	вторник
+turtle	[ʹtɜ:tl]	морская черепаха
+TV	[͵ti:ʹvi:]	телевизор
+twelve	[twelv]	двенадцать
+twenty	[ʹtwentı]	двадцать
+two	[tu:]	два

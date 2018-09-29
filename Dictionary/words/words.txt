@@ -1,0 +1,567 @@
+acrobat	[ʹækrəbæt]	акробат
+afraid	[əʹfreıd]	испуганный,напуганный
+Africa	[ʹæfrıkə]	Африка
+afternoon	[͵ɑ:ftəʹnu:n]	время после полудня
+air	[eə]	воздух
+America	[əʹmerıkə]	Америка
+and	[ænd]	и (союз)
+animal	[ʹænım(ə)l]	животное
+answer	[ʹɑ:nsə]	отвечать
+ant	[ænt]	муравей
+apple	[ʹæp(ə)l]	яблоко
+April	[ʹeıprəl]	апрель
+arm	[ɑ:m]	рука (от плеча до кисти)
+armbands	[ʹɑ:mbændʹs]	нарукавники для плавания
+Art	[ɑ:t]	изобразительное искусство
+artist	[ʹɑ:tıst]	художник
+artistic	[ɑ:ʹtıstık]	творческий;художественный
+ask	[ɑ:sk]	спрашивать
+August	[ʹɔ:gəst]	август
+Australia	[ɔ:ʹstreılıə]	Австралия
+autumn	[ʹɔ:təm]	осень
+away	[əʹweı]	далеко; прочь 
+carry away	[ʹkærı] [əʹweı]	уносить,унести; 
+run away	[rʌn] [əʹweı]	убегать
+baboon	[bəʹbu:n]	павиан
+baby	[ʹbeıbı]	ребёнок; детёныш (животного)
+back	[bæk]	спина
+bake	[beık]	печь, выпекать
+ball	[bɔ:l]	мяч; клубок
+barking	[ʹbɑ:kıŋ]	лай
+basket	[ʹbɑ:skıt]	корзина
+bat	[bæt]	летучая мышь
+bath	[bɑ:θ]	ванна
+baton	[ʹbætɒn]	булава
+beach	[bi:tʃ]	пляж
+bear	[beə]	медведь
+beautiful	[ʹbju:tıf(ə)l]	красивый
+bedroom	[ʹbedru(:)m]	спальня
+bee	[bi:]	пчела
+behind	[bıʹhaınd]	3a, сзади
+belt	[belt]	ремень
+big	[bıg]	большой
+Big Ben	[bıg] [ben]	часовая башня Вестминстерского дворца в Лондоне
+bike	[baık]	велосипед
+bird	[bɜ:d]	птица
+biscuit	[ʹbıskıt]	печенье
+black	[blæk]	чёрный
+blowhole	[ʹbləʋhəʋl]	дыхало(отверстие для дыхания y кита)
+blue	[blu:]	синий; голубой
+boat	[bəʋt]	лодка
+boil	[bɔıl]	кипятить
+boot	[bu:t]	ботинок, сапог
+breakfast	[ʹbrekfəst]	завтрак
+brother	[ʹbrʌðə]	õpaT
+brown	[braʋn]	коричневый
+bucket	[ʹbʌkıt]	ведро
+bull	[bʋl]	бык
+busy	[ʹbızı]	занятой
+cabbage	[ʹkæbıdʒ]	капуста
+cafe	['kæfei]	кафе, кофейня
+cake	[keık]	пирожное, торт
+calf	[kɑ:f]	телёнок
+camel	[ʹkæm(ə)l]	верблюд
+Canada	[ʹkænədə]	Канада
+carry	[ʹkærı]	нести, относить; везти, отвозить
+cart	[kɑ:t]	повозка, телега
+castle	[ʹkɑ:s(ə)l]	замок
+catch	[kætʃ]	ловить, поймать
+chair	[tʃeə]	стул
+cheer	[tʃıə]	ободрять, подбадривать
+cheese	[tʃi:z]	сыр
+chew	[tʃu:]	жевать
+chicken	[ʹtʃıkın]	курица, цыплёнок (еда)
+classroom	[ʹklɑ:srʋm]	класс, классная комната
+claw	[klɔ:]	клешня
+clean	[kli:n]	чистить
+clever	[ʹklevə]	умный
+clock tower	[klɒk] [ʹtaʋə]	часовая башня
+close	[kləʋs]	близко расположенный
+clothes	[kləʋ(ð)z]	одежда
+cloud	[klaʋd]	облако
+clown	[klaʋn]	клоун
+coach	[kəʋtʃ]	автобус дальнего следования
+coat	[kəʋt]	пальто
+coin	[kɔın]	монета
+cold	[kəʋld]	холодный
+collar	[ʹkɒlə]	воротник
+colour	[ʹkʌlə]	цвет; краска
+come	[kʌm]	приходить; идти
+come on	[kʌm] [ɒn]	Идём!,Пошли!
+competition	[͵kɒmpıʹtıʃ(ə)n]	соревнование; конкурс
+computer	[kəmʹpju:tə]	компьютер
+cotton	[ʹkɒtn]	хлопок
+count	[kaʋnt]	считать
+cow	[kaʋ]	корова
+cowboy	[ʹkaʋbɔı]	ковбой
+crab	[kræb]	краб
+crawl	[krɔ:l]	ползать
+cream	[kri:m]	крем
+crew	[kru:]	экипаж (судна, самолёта)
+crowd	[kraʋd]	толпа
+cucumber	[ʹkju:kʌmbə]	огурец
+cut	[kʌt]	резать, разрезать
+dad	[dæd]	папа
+dairy	[ʹdeərı]	молочные продукты
+dance	[dɑ:ns]	танцевать
+day	[deı]	день
+December	[dıʹsembə]	декабрь
+den	[den]	берлога, логово
+desert	[ʹdezət]	пустыня
+desk	[desk]	парта; письменный стол
+difficult	[ʹdıfık(ə)lt]	трудный
+Discobolus	[dısʹkɒbələs]	Дискобол ()
+divided by	[dıʹvaıdıd] [baı]	делённый на
+doctor	[ʹdɒktə]	врач, доктор
+dolphin	[ʹdɒlfın]	дельфин
+door	[dɔ:]	дверь
+down	[daʋn]	вниз
+draw	[drɔ:]	рисовать
+dress	[dres]	платье
+drink	[drıŋk]	пить
+ear	[ıə]	yxo
+ (the) Earth	[ðə]  [ɜ:θ]	Земля
+eat	[i:t]	есть, съесть
+egg	[eg]	яйцо
+Egypt	[ʹıdʒıpt]	Египет
+eight	[eıt]	восемь
+eighteen	[eıʹti:n]	восемнадцать
+elephant	[ʹelıfənt]	слон
+eleven	[ıʹlev(ə)n]	одиннадцать
+emu	[ʹi:mju:]	эму
+England	[ʹıŋglənd]	Англия
+equal	[ʹi:kwəl]	равняться
+evening	[ʹi:vnıŋ]	вечер
+every	[ʹevrı]	каждый
+eye	[aı]	глаз
+fair	[feə]	честный,справедливый
+fall	[fɔ:l]	падать
+family	[ʹfæm(ə)lı]	семья
+far	[fɑ:]	далёкий; далеко
+farmer	[ʹfɑ:mə]	фермер
+fast	[fɑ:st]	быстрый; быстро
+father	[ʹfɑ:ðə]	отец
+favourite	[ʹfeıv(ə)rıt]	любимый
+February	[ʹfebrʋ(ə)rı]	февраль
+fifteen	[fıfʹti:n]	пятнадцать
+fight	[faıt]	драться, сражаться
+film star	[fılm] [stɑ:]	кинозвезда
+fin	[fın]	плавник
+fine	[faın]	хороший, прекрасный, превосходный
+finger	[ʹfıŋgə]	палец (руки)
+first	[fɜ:st]	первый (по счёту)
+fishing net	[ʹfıʃıŋ] [net]	сачок для лова рыбы
+fit	[fıt]	быть впору, подходить
+five	[faıv]	пять
+flipper	[ʹflıpə]	ласт(у морских животных)
+flippers	[ʹflıpə's]	ласты (приспособление для плавания, надеваемое на ноги)
+flower	[ʹflaʋə]	цветок
+foot	[fʋt]	ступня, нога
+forest	[ʹfɒrıst]	лес
+fork	[fɔ:k]	вилка
+fountain	[ʹfaʋntın]	фонтан
+four	[fɔ:]	четыре
+fourteen	[͵fɔ:ʹti:n]	четырнадцать
+Friday	[ʹfraıdı]	пятница
+friend	[frend]	друг, подруга
+frog	[frɒg]	лягушка
+fruit	[fru:t]	фрукт, фрукты
+fun	[fʌn]	веселье, забава
+funny	[ʹfʌnı]	забавный, смешной
+fur	[fɜ:]	мех; меховой
+further	[ʹfɜ:ðə]	дальше
+game	[geım]	игра
+gardener	[ʹgɑ:dnə]	садовник
+get	[get]	хватать, схватить
+get up	[get] [ʌp]	вставать, подниматься (просыпаться)
+giraffe	[dʒıʹrɑ:f]	жираф
+girl	[gɜ:l]	девочка
+glasses	['glɑ:siz]	очки
+glue	[glu:]	клей
+go	[gəʋ]	идти; ехать
+goal	[gəʋl]	задача, цель
+goat	[gəʋt]	коза, козёл
+good	[gʋd]	хороший
+Goodnight!	[gʋdʹnaıt]!	Спокойной ночи!
+grandparents	[ʹgræn͵pe(ə)rənts]	бабушка и дедушка
+Greece	[gri:s]	Греция
+green	[gri:n]	зелёный
+grey	[greı]	серый
+gut	[gʌt]	кишка
+gym	[dʒım]	тренажёрный зал
+hair	[heə]	волосы
+hand	[hænd]	рука (кисть)
+handkerchief	[ʹhæŋkətʃıf]	носовой платок
+happy	[ʹhæpı]	счастливый
+hare	[heə]	заяц
+hat	[hæt]	шапка, шляпа
+have	[hæv]	иметь, обладать
+he	[hi:]	он
+head	[hed]	голова
+healthy	[ʹhelθı]	здоровый;полезный
+hear	[hıə]	слышать
+heart	[hɑ:t]	сердце
+heavy	[ʹhevı]	тяжёлый
+help	[help]	помогать; помощь
+her	[hɜ:]	её
+herb	[hɜ:b]	(лекарственное) растение
+herd	[hɜ:d]	стадо
+here	[hıə]	здесь, тут
+high	[haı]	высокий; высоко
+hippo	[ʹhıpəʋ]	бегемот
+his	[hız]	его
+History	[ʹhıst(ə)rı]	история
+holiday	[ʹhɒlıdı]	каникулы
+home	[həʋm]	дом
+homework	[ʹhəʋmwɜ:k]	домашнее задание
+hope	[həʋp]	надежда
+horn	[hɔ:n]	рог
+horrible	[ʹhɒrəb(ə)l]	ужасный
+horse	[hɔ:s]	конь, лошадь
+hot	[hɒt]	горячий; жаркий
+hour	[ʹaʋə]	час (60 минут)
+house	[haʋs]	дом, здание
+how	[haʋ]	как?, каким образом? 
+Hudson River	[ʹhʌds(ə)n] [ʹrıvə]	Гудзон (река в США)
+hummingbird	[ʹhʌmıŋbɜ:d]	колибри (птица)
+hungry	[ʹhʌŋgrı]	голодный
+hurt	[hɜ:t]	причинить боль, травмировать
+hut	[hʌt]	хижина
+I	[aı]	я
+ice	[aıs]	лёд
+ice cream	[aıs] [kri:m]	мороженое
+idea	[aıʹdıə]	идея
+indeed	[ınʹdi:d]	в самом деле, действительно
+insect	[ʹınsekt]	насекомое
+island	[ʹaılənd]	остров
+it	[ıt]	он, она, оно (о неодушевлённых предметах, животных)
+its	[ıts]	его, её (относящийся к предметам, животным)
+jacket	[ʹdʒækıt]	пиджак
+January	[ʹdʒænjʋ(ə)rı]	январь
+jeans	[dʒi:nz]	джинсы
+journey	[ʹdʒɜ:nı]	путешествие
+July	[dʒʋʹlaı]	июль
+jump	[dʒʌmp]	прыгать, скакать
+jumper	[ʹdʒʌmpə]	свитер
+June	[dʒu:n]	июнь
+jungle	[ʹdʒʌŋg(ə)l]	джунгли
+Jupiter	[ʹdʒu:pıtə]	Юпитер
+kangaroo	[͵kæŋgəʹru:]	кенгуру
+key	[ki:]	ключ
+king	[kıŋ]	король
+know	[nəʋ]	знать
+lake	[leık]	озеро
+last	[lɑ:st]	последний
+laugh	[lɑ:f]	смеяться
+launch	[lɔ:ntʃ]	запуск (ракеты)
+lawyer	[ʹlɔ:jə]	юрист; адвокат
+leaf	[li:f]	лист (растения)
+learn	[lɜ:n]	учить (что-либо)] учиться
+leather	[ʹleðə]	кожа
+leg	[leg]	нога (от бедра до ступни)
+lie	[laı]	лежать
+light	[laıt]	зажигать
+like	[laık]	нравиться, любить
+lilo	[ʹlaıləʋ]	надувной матрас
+lion	[ʹlaıən]	лев
+listen	[ʹlıs(ə)n]	слушать
+little	[ʹlıtl]	маленький
+live	[lıv]	жить, обитать
+London	[ʹlʌndən]	Лондон
+long	[lɒŋ]	длинный
+look	[lʋk]	смотреть, глядеть
+look for	[lʋk] [fɔ:]	искать
+lots (of)	[lɒt's] ([ɒv])	много
+lovely	[ʹlʌvlı]	красивый; милый; чудный; прелестный
+lucky	[ʹlʌkı]	удачливый
+lunch	[lʌntʃ]	обед
+magic	[ʹmædʒık]	волшебный
+make	[meık]	делать, изготавливать
+man	[mæn]	человек, мужчина
+Manhattan	[mænʹhætn]	Манхэттен (остров -район Нью-Йорка)
+many	[ʹmenı]	много
+March	[mɑ:tʃ]	март
+Mars	[mɑ:z]	Mapc
+master	[ʹmɑ:stə]	хозяин; господин
+Maths	[mæθs]	математика
+May	[meı]	май
+meal	[mi:l]	еда
+meat	[mi:t]	мясо
+menu	[ʹmenju:]	меню
+Mercury	[ʹmɜ:kjʋrı]	Меркурий
+milk	[mılk]	молоко
+minus	[ʹmaınəs]	минус
+minute	[ʹmınıt]	минута
+moment	[ʹməʋmənt]	момент, минута
+Monday	[ʹmʌndı]	понедельник
+monkey	[ʹmʌŋkı]	обезьяна
+month	[mʌnθ]	месяц
+morning	[ʹmɔ:nıŋ]	утро
+Moscow	[ʹmɒskəʋ]	Москва
+mother	[ʹmʌðə]	мать
+mountain	[ʹmaʋntın]	гора
+mouse	[maʋs]	мышь
+mouth	[maʋθ]	рот
+multiplied by	[ʹmʌltıplaıd] [baı]	умноженный на
+mum	[mʌm]	мама
+musician	[mju:ʹzıʃ(ə)n]	музыкант
+my	[maı]	мой, моя, моё, мои
+near	[nıə]	рядом, около
+need	[ni:d]	необходимость
+Neva River	[ʹneıvə] [ʹrıvə]	Нева (река в России)
+New York	[nju:] [jɔ:k]	Нью-Йорк
+next	[nekst]	следующий; будущий
+next to	[nekst] [tu:]	рядом c
+nice	[naıs]	хороший, милый
+night	[naıt]	ночь
+Nile River	[naıl] [ʹrıvə]	Нил (река в Африке)
+nine	[naın]	девять
+nineteen	[͵naınʹti:n]	девятнадцать
+noise	[nɔız]	шум, гам
+nose	[nəʋz]	hoc
+November	[nə(ʋ)ʹvembə]	ноябрь
+nurse	[nɜ:s]	медицинская сестра
+o'clock	[əʹklɒk]	часов 
+October	[ɒkʹtəʋbə]	октябрь
+octopus	[ʹɒktəpəs]	осьминог
+of course	[ɒv] [kɔ:s]	конечно
+old	[əʋld]	старый
+(the) Olympic Games	([ðə]) [əʹlımpık]  [Geım's]	Олимпийские игры
+on	[ɒn]	на (на поверхностичего-либо)
+one	[wʌn]	один
+open	[ʹəʋpən]	открывать
+orange	[ʹɒrındʒ]	1) апельсин; 2) оранжевый
+orange juice	[ʹɒrındʒ] [dʒu:s]	апельсиновый сок
+ostrich	[ʹɒstrıtʃ]	страус
+our	[ʹaʋə]	наш, наша, наше, наши
+over there	[ʹəʋvə] [ðeə]	(вон) там
+owl	[aʋl]	сова; филин
+paint	[peınt]	красить, раскрашивать
+pan	[pæn]	сковорода
+parents	[ʹpe(ə)rənt's]	родители
+park	[pɑ:k]	парк, сквер
+parrot	[ʹpærət]	попугай
+party	[ʹpɑ:tı]	вечеринка
+peach	[pi:tʃ]	персик
+pear	[peə]	груша
+pen	[pen]	ручка (для письма)
+pence	[pens]	пенни, пенс (британская разменная монета)
+pencil	[ʹpens(ə)l]	карандаш
+penguin	[ʹpeŋgwın]	пингвин
+people	[ʹpi:p(ə)l]	люди
+perch	[pɜ:tʃ]	жёрдочка
+pet	[pet]	любимое домашнее животное
+phone	[fəʋn]	телефон
+photograph	[ʹfəʋtəgrɑ:f]	фотография
+piano	[pıʹænəʋ]	фортепьяно
+picnic	[ʹpıknık]	пикник
+picture	[ʹpıktʃə]	картина; рисунок
+pie	[paı]	пирог
+pilot	[ʹpaılɒt]	лётчик, пилот
+pink	[pıŋk]	розовый
+pirate	[ʹpaı(ə)rət]	пират
+place	[pleıs]	место
+planet	[ʹplænıt]	планета
+play	[pleı]	играть
+playground	[ʹpleıgraʋnd]	площадка для игр
+plum	[plʌm]	слива
+plus	[plʌs]	плюс
+poem	[ʹpəʋım]	поэма; стихотворение
+point	[pɔınt]	указывать
+polar bear	[ʹpəʋlə] [beə]	белый медведь
+politician	[͵pɒlıʹtıʃ(ə)n]	политик
+pool	[pu:l]	лужа
+popular	[ʹpɒpjʋlə]	популярный
+port	[pɔ:t]	порт
+pot	[pɒt]	горшок, кастрюля
+present	[ʹprez(ə)nt]	подарок
+prize	[praız]	награда, приз
+pull	[pʋl]	тянуть, тащить
+purple	[ʹpɜ:p(ə)l]	фиолетовый
+push	[pʋʃ]	толкать; пихать
+put	[pʋt]	класть, ставить
+put on	[pʋt] [ɒn]	надевать
+pyjamas	[pəʹdʒɑ:məz]	пижама
+pyramid	[ʹpırəmıd]	пирамида
+queen	[kwi:n]	королева
+quick	[kwık]	быстрый
+quiet	[ʹkwaıət]	тихий
+race	[reıs]	состязание в беге или в скорости
+rainforest	[ʹreın͵fɒrıst]	тропический лес
+read	[ri:d]	читать, прочитать
+ready	[ʹredı]	готовый (к действию)
+Ready! Steady! Go!	[ʹredı]! [ʹstedı]! [gəʋ]!	На старт! Внимание! Марш!
+red	[red]	красный
+rice	[raıs]	рис
+river	[ʹrıvə]	река
+royal	[ʹrɔıəl]	королевский
+run	[rʌn]	бежать, бегать
+Russia	[ʹrʌʃə]	Россия
+sad	[sæd]	грустный
+safe	[seıf]	безопасный
+Saint Petersburg	[seınt] Petersburg	Санкт-Петербург
+salad	[ʹsæləd]	салат (блюдо)
+Saturday	[ʹsætədı]	суббота
+Saturn	[ʹsætən]	Сатурн
+sausage	[ʹsɒsıdʒ]	колбаса; сосиска
+save	[seıv]	спасать
+scared	[skeəd]	испуганный
+scarf	[skɑ:f]	шарф
+school	[sku:l]	школа
+screw	[skru:]	винт, шуруп
+sea	[si:]	море
+seahorse	[ʹsi:hɔ:s]	морской конёк
+seal	[si:l]	тюлень
+SeaWorld	SeaWorld	Морской мир 
+second	[ʹsekənd]	второй (по счёту)
+see	[si:]	смотреть; видеть
+September	[sepʹtembə]	сентябрь
+seven	[ʹsev(ə)n]	семь
+seventeen	[͵sev(ə)nʹti:n]	семнадцать
+shark	[ʃɑ:k]	акула
+she	[ʃi:]	она
+sheep	[ʃi:p]	овца; баран
+ship	[ʃıp]	корабль
+shirt	[ʃɜ:t]	рубашка
+shoes	[ʃu:'s]	туфли
+shop 	[ʃɒp] 	магазин
+short	[ʃɔ:t]	короткий; низкий
+shorts	[ʃɔ:ts]	шорты
+shot	[ʃɒt]	выстрел
+silk	[sılk]	шёлк
+sing	[sıŋ]	петь
+singer	[ʹsıŋə]	певец, певица
+single	[ʹsıŋg(ə)l]	один, единственный
+sister	[ʹsıstə]	сестра
+sit	[sıt]	сидеть; садиться
+six	[sıks]	шесть
+sixteen	[͵sıkʹsti:n]	шестнадцать
+skiing	[ʹski:ıŋ]	катание на лыжах
+skirt	[skɜ:t]	юбка
+sky	[skaı]	небо
+sleep	[sli:p]	спать
+slide	[slaıd]	детская горка
+small	[smɔ:l]	маленький
+smell	[smel]	нюхать
+snake	[sneık]	змея
+snowman	[ʹsnəʋmæn]	снеговик, снежная баба
+Sochi	[ʹsɔ:tʃı]	Сочи
+socks	[sɒk's]	носки
+song	[sɒŋ]	песня
+Sorry!	[ʹsɒrı]!	Простите!, Извините!
+south	[saʋθ]	юг
+spade	[speıd]	лопата
+spaghetti	[spəʹgetı]	спагетти
+special	[ʹspeʃ(ə)l]	особый, специальный
+sphinx	[sfıŋks]	сфинкс 
+spring	[sprıŋ]	весна
+spy	[spaı]	шпион
+stair	[steə]	лестница
+star	[stɑ:]	звезда
+stare	[steə]	пристально глядеть; уставиться
+statue	[ʹstætʃu:]	статуя
+still	[stıl]	(всё) ещё, по-прежнему
+straw	[strɔ:]	солома
+stream	[stri:m]	ручей
+street	[stri:t]	улица
+strong	[strɒŋ]	сильный
+summer	[ʹsʌmə]	лето
+sun	[sʌn]	солнце
+Sunday	[ʹsʌndı]	воскресенье
+sun hat	[sʌn] [hæt]	шляпа от солнца
+sure	[ʃʋə]	уверенный
+swan	[swɒn]	лебедь
+sweet	[swi:t]	конфета
+swim	[swım]	плавать, плыть
+swimmer	[ʹswımə]	пловец
+swing	[swıŋ]	1) качели; 2) качаться
+table	[ʹteıb(ə)l]	стол
+tail	[teıl]	хвост
+take	[teık]	брать
+talk	[tɔ:k]	говорить, разговаривать
+tall	[tɔ:l]	высокий
+taste	[teıst]	пробовать (на вкус)
+teacher	[ʹti:tʃə]	учитель, учительница
+ten	[ten]	десять
+tentacle	[ʹtentək(ə)l]	щупальце
+test	[test]	тест; контрольная работа
+Thailand	[ʹtaılænd]	Таиланд (государство в Азии) 
+(the River) Thames	([ðə] [ʹrıvə]) [temz]	Темза (река в Великобритании)
+that	[ðæt]	тот, та, то
+their	[ðeə]	их
+these	[ði:z]	эти
+they	[ðeı]	они
+thing	[θıŋ]	вещь, предмет
+think	[θıŋk]	думать
+third	[θɜ:d]	третий (по счёту)
+thirsty	[ʹθɜ:stı]	испытывающий жажду
+thirteen	[͵θɜ:ʹti:n]	тринадцать
+this	[ðıs]	этот, эта, это
+those	[ðəʋz]	те
+three	[θri:]	три
+throw	[θrəʋ]	бросать, кидать
+Thursday	[ʹθɜ:zdı]	четверг
+tie	[taı]	галстук
+tiger	[ʹtaıgə]	тигр
+time	[taım]	время
+tired	[ʹtaıəd]	усталый
+today	[təʹdeı]	сегодня
+together	[təʹgeðə]	вместе
+tomorrow	[təʹmɒrəʋ]	завтра
+tooth	[tu:θ]	зуб
+touch	[tʌtʃ]	трогать; осязать
+towel	[ʹtaʋəl]	полотенце
+town	[taʋn]	город
+toy	[tɔı]	игрушка
+trainers	[ʹtreınə's]	кроссовки
+tree	[tri:]	дерево
+trick	[trık]	хитрость; проделка
+trousers	[ʹtraʋzəz]	брюки
+T-shirt	[ti:]-[ʃɜ:t]	футболка
+Tuesday	[ʹtju:zdı]	вторник
+turtle	[ʹtɜ:tl]	морская черепаха
+TV	[͵ti:ʹvi:]	телевизор
+twelve	[twelv]	двенадцать
+twenty	[ʹtwentı]	двадцать
+two	[tu:]	два
+under	[ʹʌndə]	под (под поверхностью чего-либо)
+USA	USA	США(Соединённые Штаты Америки)
+vase	[vɑ:z]	ваза
+vegetable	[ʹvedʒ(ı)təb(ə)l]	овощ
+Venus	[ʹvi:nəs]	Венера
+very	[ʹverı]	очень
+village	[ʹvılıdʒ]	деревня
+vine	[vaın]	виноградная лоза
+voice	[vɔıs]	голос
+Volga River	[ʹvɒlgə] [ʹrıvə]	Волга (река в России)
+volleyball	[ʹvɒlıbɔ:l]	волейбол
+wait	[weıt]	ждать
+walk	[wɔ:k]	ходить
+watch	[wɒtʃ]	смотреть
+watch TV	[wɒtʃ] [͵ti:ʹvi:]	смотреть телевизор
+water	[ʹwɔ:tə]	вода
+we	[wi:]	мы
+wear	[weə]	носить (одежду)
+Wednesday	[ʹwenzdı]	среда
+week	[wi:k]	неделя
+Well done!	[wel] [dʌn]!	Хорошо!, Отлично!, Молодец!
+wet	[wet]	мокрый
+whale	[weıl]	кит
+what	[wɒt]	что?
+where	[weə]	где?
+white	[waıt]	белый
+wide	[waıd]	широкий
+wild	[waıld]	дикий
+win	[wın]	победить, выиграть
+winner	[ʹwınə]	победитель
+winter	[ʹwıntə]	зима
+with	[wıð]	с, вместе c
+woman	[ʹwʋmən]	женщина
+wool	[wʋl]	шерсть
+word	[wɜ:d]	слово
+world	[wɜ:ld]	мир, Земля
+work	[wɜ:k]	работать
+worm	[wɜ:m]	червяк
+write	[raıt]	писать
+writer	[ʹraıtə]	писатель
+yak	[jæk]	як , бык, 

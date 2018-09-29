@@ -1,0 +1,3 @@
+H:\dev\SuperEngish\SuperEngish.BL\bin\Release\SuperEngish.BL.dll
+H:\dev\SuperEngish\SuperEngish.BL\obj\Release\SuperEngish.BL.csprojResolveAssemblyReference.cache
+H:\dev\SuperEngish\SuperEngish.BL\obj\Release\SuperEngish.BL.dll
