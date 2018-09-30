@@ -429,7 +429,6 @@ namespace SuperEngish
 			this.progressBar_time.Size = new System.Drawing.Size(1042, 10);
 			this.progressBar_time.Step = 1;
 			this.progressBar_time.TabIndex = 7;
-			this.progressBar_time.ClientSizeChanged += new System.EventHandler(this.ProgressBar_timeClientSizeChanged);
 			// 
 			// textBox_Rezult
 			// 

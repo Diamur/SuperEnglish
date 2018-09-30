@@ -133,7 +133,7 @@ namespace SuperEngish
 		public string LevelText {get {return _levelText;} set {_levelText=value;} }
 		public int MaxSecLevel {get {return _maxSecLevel;} set {_maxSecLevel=value;}	}
 		public int MaxError { get {return _maxError ;}	set {_maxError =value;}	}
-		public int SecLevel { get {return _secLevel;}	set {_secLevel=value;  if (ValueChangedSecLevel!= null) ValueChangedSecLevel(this, EventArgs.Empty);}	}
+		public int SecLevel { get {return _secLevel;}	set {if(_secLevel!=value) {_secLevel=value;  if (ValueChangedSecLevel!= null) ValueChangedSecLevel(this, EventArgs.Empty);}}	}
 		public int Level { get {return level ;} set {level=value;}}
 		
 		//--------------------------------------------------------------------- 

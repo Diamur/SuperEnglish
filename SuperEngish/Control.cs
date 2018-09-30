@@ -40,7 +40,7 @@ public class Control{
         _view.E_Label_unknownClick += _view_E_Label_unknownClick;
         _view.E_Button_levelClick += _view_E_Button_levelClick;
         _view.E_Timer_timeTick += _view_E_Timer_timeTick;
-        _view.E_ProgressBar_timeClientSizeChanged += _view_E_ProgressBar_timeClientSizeChanged;
+        //_view.E_ProgressBar_timeClientSizeChanged += _view_E_ProgressBar_timeClientSizeChanged;
         
         _variableGlobal.ValueChangedSecLevel+= _variableGlobal_ValueChangedSecLevel;
 
@@ -161,10 +161,11 @@ public class Control{
 			OutResult("не знаю");
 				SetColorVariant(3, Color.Red);
 				_view.SetTimerVarEnable= true ;
+				_view.TimerLevelEnable=false;
 				//_variableGlobal.AddIndexErrorWords(_variableGlobal.CurrentIndex);					
-			// Последний индекс списка индексов
-			//_variableGlobal.LastIndex = _logic.GetNextIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
-			//_view.Rezult =" не верно " +  Environment.NewLine + _view.Rezult ;
+				// Последний индекс списка индексов
+				//_variableGlobal.LastIndex = _logic.GetNextIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
+				//_view.Rezult =" не верно " +  Environment.NewLine + _view.Rezult ;
 			return;
 			}
 			//Если верно
@@ -194,6 +195,7 @@ public class Control{
 			}
 			
 			//SetProgressBarTimeZero();
+			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
 		}
 
 		void _view_E_Label_unknownClick(object sender, EventArgs e)
@@ -201,17 +203,8 @@ public class Control{
 			if(_variableGlobal.FlagPausa) return;
 			
 			_view.ShowFormError(_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][0],_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][1],_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][2]);			
-			//
-			//OutResult("не знаю");
-			// обработка варианта
-			//LogicaVar(3);
-			//			
-			//Cycles();
-			
-			//TestOut();
-			//Установка следующего индекса для показа слова		
-			//_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);	
-			
+			//_view.TimerLevelEnable=true;
+			_variableGlobal.SecLevel= _variableGlobal.MaxSecLevel*100;
 		}
 		//Тестовые выводы
 		void TestOut(){
@@ -267,7 +260,8 @@ public class Control{
 			
 			TestOut();
 			//Установка следующего индекса для показа слова		
-			_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);			
+			_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);		
+			
 		}
 		
 		// Нажатие Варианта 2
@@ -303,7 +297,7 @@ public class Control{
 				_view.SetColorUnknow=Color.MistyRose;
 				_view.SetTimerVarEnable= false ;
 				_variableGlobal.SecVar = 0;
-				
+			_view.TimerLevelEnable=true;	
 				//_variableGlobal.SetSecVar(0);
 			}			
 		}
@@ -331,10 +325,13 @@ public class Control{
 				
 		}
 
-		//Событие изменения значения секунд Уровня сложности
-			
+		//Событие изменения значения секунд Уровня сложности			
 		void _variableGlobal_ValueChangedSecLevel(object sender, EventArgs e)
 		{
+			if(_variableGlobal.SecLevel <=0 ){
+					_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
+				NextStep();
+			}
 			_view.ProgressBarTime = _variableGlobal.SecLevel;
 		}
 		
@@ -424,39 +421,17 @@ public class Control{
 		
 //		void SetProgressBarTime(int value){
 //			_view.ProgressBarTime = value;
-//		}
-		
-		//событие изменение прогрессбара
-		void _view_E_ProgressBar_timeClientSizeChanged(object sender, EventArgs e)
-		{
-			if( _view.ProgressBarTime == 0)
-			NextStep();
-		}
+//		}	
 		
 		//Таймер уровень сложности
 		void _view_E_Timer_timeTick(object sender, EventArgs e)
 		{
 			if(_variableGlobal.MaxSecLevel ==0) return ;
-			if(_variableGlobal.SecLevel ==0 ){
-				//_view.TimerLevelEnable=false;
-				_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
-				//SetProgressBarTime(0);
-				//NextStep();
-			}
-			//if( _variableGlobal.SecLevel == _variableGlobal.MaxSecLevel * 100)
-			//	_variableGlobal.SecLevel = _variableGlobal.SecLevel ;
-			if( _variableGlobal.SecLevel <= _variableGlobal.MaxSecLevel * 100){
-				//SetProgressBarTime( _variableGlobal.SecLevel);//(int)(1000*(double)(_variableGlobal.SecLevel)/1000);
-				_variableGlobal.SecLevel=--_variableGlobal.SecLevel;
-			}
-			else {
-				//_variableGlobal.SecLevel=0;
-				//_view.TimerLevelEnable=false;
-				
-				//SetProgressBarTime(0);
-				//NextStep();
-			}			
+			
+			_variableGlobal.SecLevel=--_variableGlobal.SecLevel;
+					
 		}
+		
 		//Циклы работ
 		void Cycles(){
 			//Отработка основного списка
@@ -562,6 +537,7 @@ public class Control{
 		}
 		
 		void SetLevelSetting(){
+			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
 			if(_variableGlobal.Level==0){
 				_variableGlobal.MaxSecLevel=0;
 				_variableGlobal.MaxError=0;
