@@ -18,3 +18,13 @@ G:\dev\SuperEnglish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
 G:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
 G:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
 G:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb
+F:\dev\SuperEnglish\SuperEngish.BL\bin\Debug\SuperEngish.BL.dll
+F:\dev\SuperEnglish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
+F:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
+F:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
+F:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb
+H:\dev\SuperEnglish\SuperEngish.BL\bin\Debug\SuperEngish.BL.dll
+H:\dev\SuperEnglish\SuperEngish.BL\bin\Debug\SuperEngish.BL.pdb
+H:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.csprojResolveAssemblyReference.cache
+H:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.dll
+H:\dev\SuperEnglish\SuperEngish.BL\obj\Debug\SuperEngish.BL.pdb

@@ -71,11 +71,19 @@
     <Compile Include="MessageService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsSE.Designer.cs">
+      <DependentUpon>SettingsSE.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="VariableGlobal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="SettingsSE.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SettingsSE.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperEngish.BL\SuperEngish.BL.csproj">

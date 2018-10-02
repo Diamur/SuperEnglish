@@ -42,6 +42,11 @@ public class Control{
         _view.E_Timer_timeTick += _view_E_Timer_timeTick;
         _view.OnProgressBarTime+= _view_OnProgressBarTime;
         _view.E_Form_Closed+= _view_E_Form_Closed;
+        _view.E_RadioButton_level1CheckedChanged+= _view_E_RadioButton_level1CheckedChanged;
+        _view.E_RadioButton_level2CheckedChanged+= _view_E_RadioButton_level2CheckedChanged;
+        _view.E_RadioButton_level3CheckedChanged+= _view_E_RadioButton_level3CheckedChanged;
+        _view.E_RadioButton_level4CheckedChanged+= _view_E_RadioButton_level4CheckedChanged;
+        _view.E_Button_settingStartClick+= _view_E_Button_settingStartClick;
         //_view.E_ProgressBar_timeClientSizeChanged += _view_E_ProgressBar_timeClientSizeChanged;
         
         _variableGlobal.ValueChangedSecLevel+= _variableGlobal_ValueChangedSecLevel;
@@ -52,6 +57,34 @@ public class Control{
         // Задание параметров формы при первоначальном запуске программы
         }
 
+		void _view_E_Button_settingStartClick(object sender, EventArgs e)
+		{
+			_view.TabControl1SelectedIndex=1;
+			Start();
+		}
+
+        //==========УРОВНИ=========================================================
+		void _view_E_RadioButton_level4CheckedChanged(object sender, EventArgs e)
+		{
+			_variableGlobal.Level=3;
+			SetLevelSetting();
+		}
+		void _view_E_RadioButton_level3CheckedChanged(object sender, EventArgs e)
+		{
+			_variableGlobal.Level=2;
+			SetLevelSetting();
+		}
+		void _view_E_RadioButton_level2CheckedChanged(object sender, EventArgs e)
+		{
+			_variableGlobal.Level=1;
+			SetLevelSetting();
+		}
+		void _view_E_RadioButton_level1CheckedChanged(object sender, EventArgs e)
+		{
+			_variableGlobal.Level=0;
+			SetLevelSetting();
+		}
+		 //==========УРОВНИ=========================================================
 		void _view_E_Form_Closed(object sender, EventArgs e)
 		{
 			//_messageService.ShowMessage("Ура Заработало");

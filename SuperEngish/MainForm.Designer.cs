@@ -85,6 +85,24 @@ namespace SuperEngish
 		private System.Windows.Forms.ToolStripStatusLabel label_level;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel14;
 		private System.Windows.Forms.Button button_close;
+		public System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.GroupBox groupBox5;
+		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label14;
+		public System.Windows.Forms.RadioButton radioButton_level4;
+		public System.Windows.Forms.RadioButton radioButton_level3;
+		public System.Windows.Forms.RadioButton radioButton_level2;
+		public System.Windows.Forms.RadioButton radioButton_level1;
+		private System.Windows.Forms.Button button_settingStart;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -110,6 +128,24 @@ namespace SuperEngish
 			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage_setting = new System.Windows.Forms.TabPage();
+			this.button_settingStart = new System.Windows.Forms.Button();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.radioButton_level4 = new System.Windows.Forms.RadioButton();
+			this.radioButton_level3 = new System.Windows.Forms.RadioButton();
+			this.radioButton_level2 = new System.Windows.Forms.RadioButton();
+			this.radioButton_level1 = new System.Windows.Forms.RadioButton();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.checkBox_foto = new System.Windows.Forms.CheckBox();
 			this.checkBox_transl = new System.Windows.Forms.CheckBox();
@@ -164,6 +200,7 @@ namespace SuperEngish
 			this.button_level = new System.Windows.Forms.Button();
 			this.button_pausa = new System.Windows.Forms.Button();
 			this.button_start = new System.Windows.Forms.Button();
+			this.button_close = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabPage_ph = new System.Windows.Forms.TabPage();
@@ -178,9 +215,11 @@ namespace SuperEngish
 			this.timer_var = new System.Windows.Forms.Timer(this.components);
 			this.timer_start = new System.Windows.Forms.Timer(this.components);
 			this.timer_time = new System.Windows.Forms.Timer(this.components);
-			this.button_close = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage_setting.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			this.groupBox5.SuspendLayout();
+			this.groupBox6.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox2.SuspendLayout();
@@ -209,6 +248,8 @@ namespace SuperEngish
 			// 
 			// tabPage_setting
 			// 
+			this.tabPage_setting.Controls.Add(this.button_settingStart);
+			this.tabPage_setting.Controls.Add(this.groupBox4);
 			this.tabPage_setting.Controls.Add(this.groupBox3);
 			this.tabPage_setting.Controls.Add(this.dataGridView1);
 			this.tabPage_setting.Controls.Add(this.groupBox2);
@@ -220,13 +261,202 @@ namespace SuperEngish
 			this.tabPage_setting.Text = "Настройки";
 			this.tabPage_setting.UseVisualStyleBackColor = true;
 			// 
+			// button_settingStart
+			// 
+			this.button_settingStart.BackColor = System.Drawing.Color.PaleGreen;
+			this.button_settingStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.button_settingStart.Location = new System.Drawing.Point(372, 422);
+			this.button_settingStart.Name = "button_settingStart";
+			this.button_settingStart.Size = new System.Drawing.Size(278, 41);
+			this.button_settingStart.TabIndex = 8;
+			this.button_settingStart.Text = "СТАРТ";
+			this.button_settingStart.UseVisualStyleBackColor = false;
+			this.button_settingStart.Click += new System.EventHandler(this.Button_settingStartClick);
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this.groupBox5);
+			this.groupBox4.Controls.Add(this.label13);
+			this.groupBox4.Controls.Add(this.label14);
+			this.groupBox4.Controls.Add(this.radioButton_level4);
+			this.groupBox4.Controls.Add(this.radioButton_level3);
+			this.groupBox4.Controls.Add(this.radioButton_level2);
+			this.groupBox4.Controls.Add(this.radioButton_level1);
+			this.groupBox4.Location = new System.Drawing.Point(25, 287);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(341, 176);
+			this.groupBox4.TabIndex = 7;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Уровень сложности";
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Controls.Add(this.groupBox6);
+			this.groupBox5.Controls.Add(this.label9);
+			this.groupBox5.Controls.Add(this.label7);
+			this.groupBox5.Controls.Add(this.label11);
+			this.groupBox5.Controls.Add(this.label12);
+			this.groupBox5.Location = new System.Drawing.Point(130, 29);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(194, 135);
+			this.groupBox5.TabIndex = 3;
+			this.groupBox5.TabStop = false;
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Controls.Add(this.label10);
+			this.groupBox6.Controls.Add(this.label8);
+			this.groupBox6.Controls.Add(this.label6);
+			this.groupBox6.Controls.Add(this.label5);
+			this.groupBox6.Location = new System.Drawing.Point(99, 0);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(95, 135);
+			this.groupBox6.TabIndex = 3;
+			this.groupBox6.TabStop = false;
+			// 
+			// label10
+			// 
+			this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label10.Location = new System.Drawing.Point(8, 106);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(72, 21);
+			this.label10.TabIndex = 2;
+			this.label10.Text = "без ошибок";
+			// 
+			// label8
+			// 
+			this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label8.Location = new System.Drawing.Point(8, 77);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(72, 21);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "3 ошибки";
+			// 
+			// label6
+			// 
+			this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label6.Location = new System.Drawing.Point(8, 47);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(72, 21);
+			this.label6.TabIndex = 2;
+			this.label6.Text = "10 ошибок";
+			// 
+			// label5
+			// 
+			this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label5.Location = new System.Drawing.Point(8, 17);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(72, 21);
+			this.label5.TabIndex = 2;
+			this.label5.Text = "Бесконечно";
+			// 
+			// label9
+			// 
+			this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label9.Location = new System.Drawing.Point(6, 106);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(62, 21);
+			this.label9.TabIndex = 2;
+			this.label9.Text = "3 секунд";
+			// 
+			// label7
+			// 
+			this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label7.Location = new System.Drawing.Point(6, 77);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(87, 21);
+			this.label7.TabIndex = 2;
+			this.label7.Text = "5 секунд";
+			// 
+			// label11
+			// 
+			this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label11.Location = new System.Drawing.Point(6, 47);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(62, 21);
+			this.label11.TabIndex = 2;
+			this.label11.Text = "10 секунд";
+			// 
+			// label12
+			// 
+			this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label12.Location = new System.Drawing.Point(6, 17);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(87, 21);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Бесконечно";
+			// 
+			// label13
+			// 
+			this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label13.Location = new System.Drawing.Point(244, 16);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(61, 22);
+			this.label13.TabIndex = 2;
+			this.label13.Text = "Ошибки";
+			// 
+			// label14
+			// 
+			this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label14.Location = new System.Drawing.Point(153, 16);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(61, 22);
+			this.label14.TabIndex = 2;
+			this.label14.Text = "Время";
+			// 
+			// radioButton_level4
+			// 
+			this.radioButton_level4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.radioButton_level4.Location = new System.Drawing.Point(18, 129);
+			this.radioButton_level4.Name = "radioButton_level4";
+			this.radioButton_level4.Size = new System.Drawing.Size(116, 24);
+			this.radioButton_level4.TabIndex = 1;
+			this.radioButton_level4.Text = "Экстремальный";
+			this.radioButton_level4.UseVisualStyleBackColor = true;
+			this.radioButton_level4.CheckedChanged += new System.EventHandler(this.RadioButton_level4CheckedChanged);
+			// 
+			// radioButton_level3
+			// 
+			this.radioButton_level3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.radioButton_level3.Location = new System.Drawing.Point(18, 100);
+			this.radioButton_level3.Name = "radioButton_level3";
+			this.radioButton_level3.Size = new System.Drawing.Size(104, 24);
+			this.radioButton_level3.TabIndex = 1;
+			this.radioButton_level3.Text = "Сложный";
+			this.radioButton_level3.UseVisualStyleBackColor = true;
+			this.radioButton_level3.CheckedChanged += new System.EventHandler(this.RadioButton_level3CheckedChanged);
+			// 
+			// radioButton_level2
+			// 
+			this.radioButton_level2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.radioButton_level2.Location = new System.Drawing.Point(18, 70);
+			this.radioButton_level2.Name = "radioButton_level2";
+			this.radioButton_level2.Size = new System.Drawing.Size(104, 24);
+			this.radioButton_level2.TabIndex = 1;
+			this.radioButton_level2.Text = "Средний";
+			this.radioButton_level2.UseVisualStyleBackColor = true;
+			this.radioButton_level2.CheckedChanged += new System.EventHandler(this.RadioButton_level2CheckedChanged);
+			// 
+			// radioButton_level1
+			// 
+			this.radioButton_level1.Checked = true;
+			this.radioButton_level1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.radioButton_level1.Location = new System.Drawing.Point(18, 40);
+			this.radioButton_level1.Name = "radioButton_level1";
+			this.radioButton_level1.Size = new System.Drawing.Size(104, 24);
+			this.radioButton_level1.TabIndex = 1;
+			this.radioButton_level1.TabStop = true;
+			this.radioButton_level1.Text = "Легкий";
+			this.radioButton_level1.UseVisualStyleBackColor = true;
+			this.radioButton_level1.CheckedChanged += new System.EventHandler(this.RadioButton_level1CheckedChanged);
+			// 
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.checkBox_foto);
 			this.groupBox3.Controls.Add(this.checkBox_transl);
 			this.groupBox3.Location = new System.Drawing.Point(25, 206);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(625, 143);
+			this.groupBox3.Size = new System.Drawing.Size(341, 75);
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Интерфейс";
@@ -728,6 +958,17 @@ namespace SuperEngish
 			this.button_start.UseVisualStyleBackColor = true;
 			this.button_start.Click += new System.EventHandler(this.Button_startClick);
 			// 
+			// button_close
+			// 
+			this.button_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button_close.Location = new System.Drawing.Point(930, 455);
+			this.button_close.Name = "button_close";
+			this.button_close.Size = new System.Drawing.Size(106, 23);
+			this.button_close.TabIndex = 1;
+			this.button_close.Text = "Выход";
+			this.button_close.UseVisualStyleBackColor = true;
+			this.button_close.Click += new System.EventHandler(this.Button_closeClick);
+			// 
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -861,17 +1102,6 @@ namespace SuperEngish
 			this.timer_time.Interval = 10;
 			this.timer_time.Tick += new System.EventHandler(this.Timer_timeTick);
 			// 
-			// button_close
-			// 
-			this.button_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button_close.Location = new System.Drawing.Point(930, 455);
-			this.button_close.Name = "button_close";
-			this.button_close.Size = new System.Drawing.Size(106, 23);
-			this.button_close.TabIndex = 1;
-			this.button_close.Text = "Выход";
-			this.button_close.UseVisualStyleBackColor = true;
-			this.button_close.Click += new System.EventHandler(this.Button_closeClick);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -885,6 +1115,9 @@ namespace SuperEngish
 			this.Resize += new System.EventHandler(this.MainFormResize);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage_setting.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox6.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupBox2.ResumeLayout(false);

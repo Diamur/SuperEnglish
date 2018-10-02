@@ -67,6 +67,17 @@ namespace SuperEngish
 		public event EventHandler E_ProgressBar_timeClientSizeChanged;
 		public event EventHandler OnProgressBarTime;
 		public event EventHandler E_Form_Closed;
+
+		public event EventHandler E_Button_settingStartClick;
+		
+		public event EventHandler E_RadioButton_level1CheckedChanged;
+		public event EventHandler E_RadioButton_level2CheckedChanged;
+		public event EventHandler E_RadioButton_level3CheckedChanged;
+		public event EventHandler E_RadioButton_level4CheckedChanged;	
+		
+		public int TabControl1SelectedIndex {get {return tabControl1.SelectedIndex;	} set {tabControl1.SelectedIndex=value;}	}
+
+		
 		
 		public bool ProgreesBarTimeVisible {	get {return progressBar_time.Visible ;	}	set {	progressBar_time.Visible=value;}	}
 		public int ProgressBarTimeMaxValue {get { return progressBar_time.Maximum;}	set {progressBar_time.Maximum=value	;}		}
@@ -551,6 +562,29 @@ namespace SuperEngish
 		void Button_closeClick(object sender, EventArgs e)
 		{
 			this.Close();	
+		}
+		
+		//Уровни		
+		void RadioButton_level1CheckedChanged(object sender, EventArgs e)
+		{
+			if ( E_RadioButton_level1CheckedChanged !=null) E_RadioButton_level1CheckedChanged(this, EventArgs.Empty );	
+		}
+		void RadioButton_level2CheckedChanged(object sender, EventArgs e)
+		{
+			if ( E_RadioButton_level2CheckedChanged !=null) E_RadioButton_level2CheckedChanged(this, EventArgs.Empty );
+		}
+		void RadioButton_level3CheckedChanged(object sender, EventArgs e)
+		{
+			if ( E_RadioButton_level3CheckedChanged !=null) E_RadioButton_level3CheckedChanged(this, EventArgs.Empty );
+		}
+		void RadioButton_level4CheckedChanged(object sender, EventArgs e)
+		{
+			if ( E_RadioButton_level4CheckedChanged !=null) E_RadioButton_level4CheckedChanged(this, EventArgs.Empty );
+		}
+		void Button_settingStartClick(object sender, EventArgs e)
+		{
+			//tabControl1.SelectedIndex=1;
+			if ( E_Button_settingStartClick !=null) E_Button_settingStartClick (this, EventArgs.Empty );
 		}	
 
     }
@@ -558,6 +592,8 @@ namespace SuperEngish
     //Интерфейс
     public interface IMainForm
     {
+    	//Переключение вкладки
+    	int TabControl1SelectedIndex { get; set;}
     	//Прогресс бар
     	int ProgressBarTime{ get; set;}
     	bool  ProgressBarTimeEnable { get; set;}
@@ -656,7 +692,11 @@ namespace SuperEngish
         event EventHandler E_ProgressBar_timeClientSizeChanged;
         event EventHandler OnProgressBarTime;
         event EventHandler E_Form_Closed;
-       
+        event EventHandler E_RadioButton_level1CheckedChanged ;
+        event EventHandler E_RadioButton_level2CheckedChanged ;
+        event EventHandler E_RadioButton_level3CheckedChanged ;
+        event EventHandler E_RadioButton_level4CheckedChanged ;
+        event EventHandler E_Button_settingStartClick;
         
     }
 }
