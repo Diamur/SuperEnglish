@@ -84,6 +84,7 @@ namespace SuperEngish
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel13;
 		private System.Windows.Forms.ToolStripStatusLabel label_level;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel14;
+		private System.Windows.Forms.Button button_close;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -177,6 +178,7 @@ namespace SuperEngish
 			this.timer_var = new System.Windows.Forms.Timer(this.components);
 			this.timer_start = new System.Windows.Forms.Timer(this.components);
 			this.timer_time = new System.Windows.Forms.Timer(this.components);
+			this.button_close = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage_setting.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -408,6 +410,7 @@ namespace SuperEngish
 			this.tabPage_w.Controls.Add(this.button_level);
 			this.tabPage_w.Controls.Add(this.button_pausa);
 			this.tabPage_w.Controls.Add(this.button_start);
+			this.tabPage_w.Controls.Add(this.button_close);
 			this.tabPage_w.Controls.Add(this.button1);
 			this.tabPage_w.Controls.Add(this.pictureBox1);
 			this.tabPage_w.Location = new System.Drawing.Point(4, 22);
@@ -429,6 +432,7 @@ namespace SuperEngish
 			this.progressBar_time.Size = new System.Drawing.Size(1042, 10);
 			this.progressBar_time.Step = 1;
 			this.progressBar_time.TabIndex = 7;
+			this.progressBar_time.Visible = false;
 			// 
 			// textBox_Rezult
 			// 
@@ -683,7 +687,7 @@ namespace SuperEngish
 			// button_restart
 			// 
 			this.button_restart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button_restart.Location = new System.Drawing.Point(986, 455);
+			this.button_restart.Location = new System.Drawing.Point(874, 484);
 			this.button_restart.Name = "button_restart";
 			this.button_restart.Size = new System.Drawing.Size(50, 23);
 			this.button_restart.TabIndex = 1;
@@ -694,9 +698,9 @@ namespace SuperEngish
 			// button_level
 			// 
 			this.button_level.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button_level.Location = new System.Drawing.Point(930, 455);
+			this.button_level.Location = new System.Drawing.Point(736, 484);
 			this.button_level.Name = "button_level";
-			this.button_level.Size = new System.Drawing.Size(50, 23);
+			this.button_level.Size = new System.Drawing.Size(76, 23);
 			this.button_level.TabIndex = 1;
 			this.button_level.Text = "Сложность";
 			this.button_level.UseVisualStyleBackColor = true;
@@ -705,7 +709,7 @@ namespace SuperEngish
 			// button_pausa
 			// 
 			this.button_pausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button_pausa.Location = new System.Drawing.Point(930, 484);
+			this.button_pausa.Location = new System.Drawing.Point(818, 484);
 			this.button_pausa.Name = "button_pausa";
 			this.button_pausa.Size = new System.Drawing.Size(50, 23);
 			this.button_pausa.TabIndex = 1;
@@ -716,9 +720,9 @@ namespace SuperEngish
 			// button_start
 			// 
 			this.button_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button_start.Location = new System.Drawing.Point(986, 484);
+			this.button_start.Location = new System.Drawing.Point(930, 484);
 			this.button_start.Name = "button_start";
-			this.button_start.Size = new System.Drawing.Size(50, 23);
+			this.button_start.Size = new System.Drawing.Size(106, 23);
 			this.button_start.TabIndex = 1;
 			this.button_start.Text = "Старт";
 			this.button_start.UseVisualStyleBackColor = true;
@@ -856,6 +860,17 @@ namespace SuperEngish
 			// 
 			this.timer_time.Interval = 10;
 			this.timer_time.Tick += new System.EventHandler(this.Timer_timeTick);
+			// 
+			// button_close
+			// 
+			this.button_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button_close.Location = new System.Drawing.Point(930, 455);
+			this.button_close.Name = "button_close";
+			this.button_close.Size = new System.Drawing.Size(106, 23);
+			this.button_close.TabIndex = 1;
+			this.button_close.Text = "Выход";
+			this.button_close.UseVisualStyleBackColor = true;
+			this.button_close.Click += new System.EventHandler(this.Button_closeClick);
 			// 
 			// MainForm
 			// 

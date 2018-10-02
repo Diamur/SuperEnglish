@@ -9,6 +9,7 @@ namespace SuperEngish
 		//ПОЛЯ
 		//Уровень сложности
 		int Level{get;set;}
+		int levelMultiplier{get;set;}
 		
 		//Массив словаря
 		string[][] ReadStroka{get;set;}
@@ -82,7 +83,9 @@ namespace SuperEngish
 		int GetIndexLeanWords(int index);
 		
 		event EventHandler ValueChangedSecLevel;
-		
+		event EventHandler OnFlagStart;
+		event EventHandler OnRemoveIndexAllWords;
+		event EventHandler OnAddIndexErrorWords;
 	}
 
 	public class VariableGlobal:  IVariableGlobal
@@ -95,7 +98,7 @@ namespace SuperEngish
 		int _maxError=0;
 		
 		int level=0;
-		
+		int _levelMultiplier = 57;
 		int _secVar=0;
 		
 		int _secStart=0;
@@ -118,7 +121,7 @@ namespace SuperEngish
 		bool _pausaFlag =false;
 		
 		//Количество показанных
-		int _countVisible=1;			
+		int _countVisible=0;			
 		
 		//полный словарь
 		List<int> indexAllWords = new List<int>();		
@@ -129,11 +132,21 @@ namespace SuperEngish
 		//ошибки
 		List<int> indexErrorWords = new List<int>();
 
+		//События 
+		public event EventHandler OnFlagStart;
 		public event EventHandler ValueChangedSecLevel;
+		public event EventHandler OnRemoveIndexAllWords;
+		public event EventHandler OnAddIndexErrorWords;
+//--------------------------------------------------
+		public int levelMultiplier { get {return _levelMultiplier;	}	set {_levelMultiplier=value;	}	}
+
+		
 		public string LevelText {get {return _levelText;} set {_levelText=value;} }
 		public int MaxSecLevel {get {return _maxSecLevel;} set {_maxSecLevel=value;}	}
 		public int MaxError { get {return _maxError ;}	set {_maxError =value;}	}
-		public int SecLevel { get {return _secLevel;}	set {if(_secLevel!=value) {_secLevel=value;  if (ValueChangedSecLevel!= null) ValueChangedSecLevel(this, EventArgs.Empty);}}	}
+		public int SecLevel { get {return _secLevel;}	set {if(_secLevel!=value) {_secLevel=value;  
+					if (ValueChangedSecLevel!= null)
+						ValueChangedSecLevel(this, EventArgs.Empty);}}	}
 		public int Level { get {return level ;} set {level=value;}}
 		
 		//--------------------------------------------------------------------- 
@@ -149,7 +162,7 @@ namespace SuperEngish
 		//--------------------------------------------------------------------- 
 		public int CountVisible { get {return _countVisible;} set {_countVisible = value;}	}
 		//--------------------------------------------------------------------- 
-		public bool FlagStart {	get {return _startFalg;} set {_startFalg= value;} }		
+		public bool FlagStart {	get {return _startFalg;} set {_startFalg= value; if (OnFlagStart!= null) OnFlagStart(this, EventArgs.Empty);} }		
 		//------Количество всего загруженных слов
 		public int CountReadStroka { get {return _readStroka.Length ;} }
 		//------Количество слов в справочнике
@@ -161,7 +174,7 @@ namespace SuperEngish
 		// ---------Количество показанных слов
 		public int CountReadWords {	get { return indexReadyWords.Count;	} }
 		// --------------Количество ошибочных слов
-		public int CountErrorWords { get { return indexErrorWords.Count;} }		
+		public int CountErrorWords { get { return indexErrorWords.Count; } }		
 		// -------------Правильный ответ
 		public string CurrentVariant {	get {return _currentVariant	;}	set { _currentVariant = value;}	}
 		// --------------Неправильный ответ
@@ -183,7 +196,7 @@ namespace SuperEngish
 		// ------------------Очистка списка---------------------------------
 		public void ClearIndexErrorWords()		{indexErrorWords.Clear();		}
 		// ------------------удаление индекса из списка---------------------------------
-		public void RemoveIndexAllWords(int index) { indexAllWords.Remove(index);}
+		public void RemoveIndexAllWords(int index) { indexAllWords.Remove(index); if (OnRemoveIndexAllWords!= null) OnRemoveIndexAllWords(this, EventArgs.Empty);}
 		// ------------------взять индекс из списка остатка---------------------------------
 		public int GetIndexAllWords(int index)	{ return indexAllWords[index];}
 		//--------------------------------------------------------------------- 		
@@ -193,7 +206,7 @@ namespace SuperEngish
 		//--------------------------------------------------------------------- 
 		public int GetIndexReadyWords(int index) { return indexReadyWords[index];}		
 		//--Список индексов ошибочных слов -----------------------------
-		public void AddIndexErrorWords(int index) { indexErrorWords.Add(index);}
+		public void AddIndexErrorWords(int index) { indexErrorWords.Add(index); if (OnAddIndexErrorWords!= null) OnAddIndexErrorWords(this, EventArgs.Empty);}
 		//--------------------------------------------------------------------- 
 		public int GetIndexErrorWords(int index) {	return indexErrorWords[index];}		
 		//--Список индексов выученных слов -----------------------------

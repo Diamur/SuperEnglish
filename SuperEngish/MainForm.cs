@@ -33,10 +33,20 @@ namespace SuperEngish
             label_v2.Visible=false;
             button_pausa.Enabled=false;
             label_unknown.Visible=false;
+           this.WindowState=FormWindowState.Maximized;
+            //fe.WindowState = FormWindowState.Maximized;
+           // fe = new FormError();
+         //   fe.E_Close+= fe_E_Close;
            
         }
         public FormError fe;
         FormLevel flevel;
+
+//		void fe_E_Close(object sender, EventArgs e)
+//		{
+//			throw new NotImplementedException();
+//		}
+
 	#region IMainForm implementation поля и события
 		public event EventHandler E_Button_selectDirWordsPathClick;
 		public event EventHandler E_Button_selectFileWordsPathClick;		
@@ -55,13 +65,15 @@ namespace SuperEngish
 		public event EventHandler E_Button_levelClick;
 		public event EventHandler E_Timer_timeTick;
 		public event EventHandler E_ProgressBar_timeClientSizeChanged;
+		public event EventHandler OnProgressBarTime;
+		public event EventHandler E_Form_Closed;
 		
-		public int ProgressBarTimeMaxValue {get { return progressBar_time.Maximum;}	set {progressBar_time.Maximum=value	;}
-		}
+		public bool ProgreesBarTimeVisible {	get {return progressBar_time.Visible ;	}	set {	progressBar_time.Visible=value;}	}
+		public int ProgressBarTimeMaxValue {get { return progressBar_time.Maximum;}	set {progressBar_time.Maximum=value	;}		}
 		public string LevelText { get {return label_level.Text  ;} set {label_level.Text =value;} }
 		public bool TimerLevelEnable {get {return timer_time.Enabled;} set {timer_time.Enabled=value;}	}
 		public bool ProgressBarTimeEnable {	get {return progressBar_time.Enabled ;} set { progressBar_time.Enabled=value;}	}
-		public int ProgressBarTime { get { return progressBar_time.Value; }	set { progressBar_time.Value=value ; } }
+		public int ProgressBarTime { get { return progressBar_time.Value; }	set { progressBar_time.Value=value ; if (OnProgressBarTime!= null) OnProgressBarTime(this, EventArgs.Empty); } }
 		public bool Label_unknown_Visible {set { label_unknown.Visible=value;} }
 		public bool ChekTranslate {get {return checkBox_transl.Checked  ;} set { checkBox_transl.Checked=value;} }
 
@@ -79,18 +91,18 @@ namespace SuperEngish
 
 		public string CountResidul {set {label_countResidual.Text=value;}}     
 		//Видимость текста
-		public bool LabelWordEnable {			set {label_w.Visible=value;}		}
-		public bool LabelTransEnable {			set {label_tr.Visible=value;}		}
-		public bool LabelVar1Enable {			set {label_v1.Visible=value;}		}
-		public bool LabelVar2Enable {			set {label_v2.Visible=value;}		}
-		public bool ButtonPausaEnable {			set {button_pausa.Enabled=value;}		}		
+		public bool LabelWordEnable {	set {label_w.Visible=value;}		}
+		public bool LabelTransEnable {	set {label_tr.Visible=value;}		}
+		public bool LabelVar1Enable {	set {label_v1.Visible=value;}		}
+		public bool LabelVar2Enable {	set {label_v2.Visible=value;}		}
+		public bool ButtonPausaEnable {	set {button_pausa.Enabled=value;}		}		
 		//тестовое поле
 		public string TestText {set { label_test.Text =value ;	}}
 		
-		public string ButtonStartText {			get { return button_start.Text ;}			set { button_start.Text=value;}		}
+		public string ButtonStartText {	get { return button_start.Text ;}			set { button_start.Text=value;}		}
 		//Вывод данных внизу панели
-		public string CountWords {			set {label_countWords.Text =value;}		}
-		public string CountCurrent {			set {label_countCurrent.Text=value;}		}
+		public string CountWords {	set {label_countWords.Text =value;}		}
+		public string CountCurrent {	set {label_countCurrent.Text=value;}		}
 		public string CountError {			set {label_countError.Text=value;}		}
 		public string CountRead {			set {label_countVisible.Text=value;}		}
 		public int ProgressBarCountLean {			set {ProgressBar_countLean.Value=value;}		}
@@ -126,7 +138,7 @@ namespace SuperEngish
 		//----------таймер варианта------------------------------------
 		public bool SetTimerVarEnable { set {timer_var.Enabled = value;} }
 		//--------------------------------------------------------------
-		public bool SetTimerStartEnable { set {timer_start.Enabled = value;} }
+		public bool SetTimerStartEnable {get{return timer_start.Enabled; } set {timer_start.Enabled = value;} }
 		//--------------------------------------------------------------
 		public string SetLabel_testText { set { label_test.Text = value;}	}
 		
@@ -277,8 +289,7 @@ namespace SuperEngish
 		// Настройки пути Словарь
 		void Button_selectDirWordsPathClick(object sender, EventArgs e)
 		{
-			if ( E_Button_selectDirWordsPathClick!=null) E_Button_selectDirWordsPathClick(this, EventArgs.Empty );
-			
+			if ( E_Button_selectDirWordsPathClick!=null) E_Button_selectDirWordsPathClick(this, EventArgs.Empty );			
 		}		
 		void Button_selectFileWordsPathClick(object sender, EventArgs e)
 		{
@@ -288,13 +299,11 @@ namespace SuperEngish
 		// Настройка пути Фото
 		void Button_selectDirFotoPathClick(object sender, EventArgs e)
 		{
-			if ( E_Button_selectDirFotoPathClick!=null) E_Button_selectDirFotoPathClick(this, EventArgs.Empty );
-	
+			if ( E_Button_selectDirFotoPathClick!=null) E_Button_selectDirFotoPathClick(this, EventArgs.Empty );	
 		}		
 		void Button_selectFileFotoPathClick(object sender, EventArgs e)
 		{
-			if ( E_Button_selectFileFotoPathClick!=null) E_Button_selectFileFotoPathClick(this, EventArgs.Empty );
-	
+			if ( E_Button_selectFileFotoPathClick!=null) E_Button_selectFileFotoPathClick(this, EventArgs.Empty );	
 		}
 		
 		//АВторазмер
@@ -348,48 +357,7 @@ namespace SuperEngish
 //			}
 //
 #endregion
-		//fm = new Form();
 		
-	//	FormErro
-	//	fm.Size.Height= new Size();
-//		fm.Size.Width=500;
-//		fm.Name="Tecт форма";
-//		fm.Size = new Size(1050, 561);
-//		fm.TopMost=true;
-//
-//		Button b_close; 
-//		b_close = new System.Windows.Forms.Button();
-//		fm.Controls.Add(b_close);
-//		
-//		b_close.Location = new System.Drawing.Point(584, 17);
-//			b_close.Name = "button_selectFileFotoPath";
-//			b_close.Size = new System.Drawing.Size(28, 23);
-//			b_close.TabIndex = 2;
-//			b_close.Text = "Закрыть";
-//			b_close.UseVisualStyleBackColor = true;
-//			b_close.Click += new System.EventHandler(B_CloseClick);
-//		
-//		fm.Show();	
-	//	ShowFormError("Hello", "хело", "Привет");
-	
-		//string result = translate("привет", "ru", "en");
- 
-//HtmlAgilityPack.HtmlDocument doc2 = new HtmlAgilityPack.HtmlDocument();
-//doc2.LoadHtml(result);
-//HtmlNodeCollection translateNode = doc2.DocumentNode.SelectNodes("//span[@id='result_box']");
-//if (translateNode.Count != 0)
-//{
-//     ResultRichTextBox.Text = translateNode[0].InnerText;
-//     HtmlNode add = doc2.DocumentNode.SelectSingleNode("//div[@class='gt-cd-c']");
-//     if (add != null)
-//     {
-//          ResultRichTextBox.AppendText("\n-------------");
-//     }
-//}
-//else
-//{
-//    ResultRichTextBox.Text = "Проблема с переводом";
-//}
 
 			flevel = new FormLevel();
 			
@@ -411,7 +379,7 @@ namespace SuperEngish
 
 		}
 		
-		public int Level(){
+		public int Level(int level){
 				flevel = new FormLevel();
 			
 			int width = Screen.PrimaryScreen.Bounds.Width;
@@ -422,6 +390,12 @@ namespace SuperEngish
 			
 			
 			//flevel.Location = loc;
+			switch (level) {
+					case 0: flevel.radioButton_level1.Checked=true; break;
+					case 1: flevel.radioButton_level2.Checked=true; break;
+					case 2: flevel.radioButton_level3.Checked=true; break;
+					case 3: flevel.radioButton_level4.Checked=true; break;
+			}
 			
 			
 			flevel.ShowDialog();
@@ -433,41 +407,43 @@ namespace SuperEngish
 		}
 		
 		//===========================================================
+#region
+//		public string TranslateText(string input, string languagePair)
+//			{
+//			    string url = String.Format("http://www.google.com/translate_t?hl=en&ie=UTF8&text={0}&langpair={1}", input, languagePair);
+//			    WebClient webClient = new WebClient();
+//			    webClient.Encoding = System.Text.Encoding.UTF8;
+//			    string result = webClient.DownloadString(url);
+//			    result = result.Substring(result.IndexOf("<span title=\"") + "<span title=\"".Length);
+//			    result = result.Substring(result.IndexOf(">") + 1);
+//			    result = result.Substring(0, result.IndexOf("</span>"));
+//			    return result.Trim();
+//			}
+//		
+//		public string translate(string word, string SL, string DL)
+//        {
+//            var cookies = new CookieContainer();
+//            string result;
+//            ServicePointManager.Expect100Continue = false;
+//            var request = (HttpWebRequest)WebRequest.Create("http://translate.google.ru/?sl=" + SL + "&tl=" + DL +  "&q=" + word);
+//            request.CookieContainer = cookies;
+//            request.Method = "POST";
+//            request.ContentType = "application/x-www-form-urlencoded";
+//            request.UserAgent = @"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.4) Gecko/20060508 Firefox/1.5.0.4";
+// 
+//            using (var requestStream = request.GetRequestStream())
+// 
+//            using (var responseStream = request.GetResponse().GetResponseStream())
+//            using (var reader = new StreamReader(responseStream, System.Text.Encoding.GetEncoding("UTF-8")))
+//            {
+//                result = reader.ReadToEnd();
+//            }
+// 
+//            return result;
+//		}
 		
-		public string TranslateText(string input, string languagePair)
-			{
-			    string url = String.Format("http://www.google.com/translate_t?hl=en&ie=UTF8&text={0}&langpair={1}", input, languagePair);
-			    WebClient webClient = new WebClient();
-			    webClient.Encoding = System.Text.Encoding.UTF8;
-			    string result = webClient.DownloadString(url);
-			    result = result.Substring(result.IndexOf("<span title=\"") + "<span title=\"".Length);
-			    result = result.Substring(result.IndexOf(">") + 1);
-			    result = result.Substring(0, result.IndexOf("</span>"));
-			    return result.Trim();
-			}
-		
-		public string translate(string word, string SL, string DL)
-        {
-            var cookies = new CookieContainer();
-            string result;
-            ServicePointManager.Expect100Continue = false;
-            var request = (HttpWebRequest)WebRequest.Create("http://translate.google.ru/?sl=" + SL + "&tl=" + DL +  "&q=" + word);
-            request.CookieContainer = cookies;
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.UserAgent = @"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.4) Gecko/20060508 Firefox/1.5.0.4";
- 
-            using (var requestStream = request.GetRequestStream())
- 
-            using (var responseStream = request.GetResponse().GetResponseStream())
-            using (var reader = new StreamReader(responseStream, System.Text.Encoding.GetEncoding("UTF-8")))
-            {
-                result = reader.ReadToEnd();
-            }
- 
-            return result;
-		}
-		
+
+#endregion
 		//===========================================================
 		
 		
@@ -509,9 +485,15 @@ namespace SuperEngish
 			SetSizeLabel_tr(er_label_tr,73, 14,2,Screen.PrimaryScreen.Bounds.Size.Width,Screen.PrimaryScreen.Bounds.Size.Height,er_label_word,er_label_otvet);
 			fe.Controls.Add(er_label_tr);
 			
+			fe.FormClosed += Form_Closed;
 			fe.Show();	
+			
 		}
 
+		void Form_Closed(object sender, FormClosedEventArgs e)
+		{
+			if ( E_Form_Closed !=null) E_Form_Closed(this, EventArgs.Empty );
+		}
 		void B_CloseClick(object sender, EventArgs e)
 		{
 			;
@@ -565,7 +547,11 @@ namespace SuperEngish
 		{
 			if ( E_ProgressBar_timeClientSizeChanged !=null) E_ProgressBar_timeClientSizeChanged(this, EventArgs.Empty );
 		}
-	
+		//Выход из программы
+		void Button_closeClick(object sender, EventArgs e)
+		{
+			this.Close();	
+		}	
 
     }
     
@@ -577,6 +563,9 @@ namespace SuperEngish
     	bool  ProgressBarTimeEnable { get; set;}
     	bool TimerLevelEnable  { get; set;}
     	int ProgressBarTimeMaxValue  { get; set;}
+    	bool ProgreesBarTimeVisible  { get; set;}
+    	
+    	
     	//Тестовые поля
     	string Tb_all{set;}
     	string Tb_index{set;}
@@ -628,7 +617,7 @@ namespace SuperEngish
         Color SetColorUnknow {set;}
         
         bool SetTimerVarEnable{set;}
-        bool SetTimerStartEnable{set;}
+        bool SetTimerStartEnable{set;get;}
         string SetLabel_testText{set;}
         
         // пути фото
@@ -645,7 +634,7 @@ namespace SuperEngish
         void SetSize();
         void dataGridView1RowsClear();
         void ShowFormError(string word, string translate, string otvet);
-        int Level();
+        int Level(int level);
         
         //События для управляющего кода  
         event EventHandler E_Button_selectDirWordsPathClick;
@@ -665,6 +654,8 @@ namespace SuperEngish
         event EventHandler E_Button_levelClick;
         event EventHandler E_Timer_timeTick;
         event EventHandler E_ProgressBar_timeClientSizeChanged;
+        event EventHandler OnProgressBarTime;
+        event EventHandler E_Form_Closed;
        
         
     }

@@ -28,7 +28,8 @@ namespace SuperEngish
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
-		int sec=0;
+		//int sec=300;
+		int sec=300;
 		#region IFormError implementation
 
 
@@ -39,29 +40,48 @@ namespace SuperEngish
 
 		void E_button_closeClick(object sender, EventArgs e)
 		{
-			this.Close();
+			Close();
 		}
+
+		#region IFormError implementation
+
+//
+//		public event EventHandler E_Close;
+//
+//		public void OnE_Close()
+//		{
+//			Close();
+//			if (E_Close!= null) E_Close(this, EventArgs.Empty);
+//		}
+//	
+
+		#endregion
+
 		void Timer1Tick(object sender, EventArgs e)
 		{
-			if(sec<301) {
+			if(sec!=0) {
+				
 				e_button_close.Enabled=false;
 				e_button_close.Visible=false;
 				//e_button_close.Text=sec.ToString();
+				//progressBar1.Value=100;
 				progressBar1.Value=(int)(100*(double)sec/300);
-				
+				sec--;
 			}
 			else{
-				this.Close();
+				//OnE_Close();
+				Close();
 				e_button_close.Enabled=true;
 				progressBar1.Visible=false;
 				e_button_close.Visible=true;
 			}
-			sec++;
+			
 		}
 	}
 	
 	public interface IFormError
 	{
+//		event EventHandler E_Close;
 	//	int er_pb_Size_Height{set;get;}
 	//	int er_pb_Size_Widh{set;get;}
 		

@@ -40,13 +40,68 @@ public class Control{
         _view.E_Label_unknownClick += _view_E_Label_unknownClick;
         _view.E_Button_levelClick += _view_E_Button_levelClick;
         _view.E_Timer_timeTick += _view_E_Timer_timeTick;
+        _view.OnProgressBarTime+= _view_OnProgressBarTime;
+        _view.E_Form_Closed+= _view_E_Form_Closed;
         //_view.E_ProgressBar_timeClientSizeChanged += _view_E_ProgressBar_timeClientSizeChanged;
         
         _variableGlobal.ValueChangedSecLevel+= _variableGlobal_ValueChangedSecLevel;
+        _variableGlobal.OnFlagStart+= _variableGlobal_OnFlagStart;
+        _variableGlobal.OnRemoveIndexAllWords+= _variableGlobal_OnRemoveIndexAllWords;
+        _variableGlobal.OnAddIndexErrorWords+= _variableGlobal_OnAddIndexErrorWords;
 
         // Задание параметров формы при первоначальном запуске программы
         }
-        
+
+		void _view_E_Form_Closed(object sender, EventArgs e)
+		{
+			//_messageService.ShowMessage("Ура Заработало");
+			_view.TimerLevelEnable=true ;		
+		}
+		void _view_OnProgressBarTime(object sender, EventArgs e)
+		{
+			_view.Index=_variableGlobal.SecLevel.ToString();
+			if(_variableGlobal.SecLevel ==1) NextStep();
+			//if(_view.ProgressBarTime==100) NextStep();
+		}
+        // Cобыитие на изменение количество ошибок
+		void _variableGlobal_OnAddIndexErrorWords(object sender, EventArgs e)
+		{
+			//Установка следующего шага
+			if (_variableGlobal.CountIndexAllWords !=0)
+			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
+			if(_variableGlobal.MaxError!=0 && _view.SetTimerStartEnable )
+				if(_variableGlobal.CountErrorWords == _variableGlobal.MaxError){
+				_view.TimerLevelEnable=false;
+				_view.SetTimerStartEnable=false;
+				_messageService.ShowExclamation("Ай..ай..ай!" + Environment.NewLine
+				                                +"Слишком много ошибок!"  + Environment.NewLine
+				                                + "Попробуйте еще разок)");
+				                                //Stop();
+				                                Start();
+				                                Restart();
+				                               // Start();
+				                                //Start();
+				                                
+				                                
+			}
+					
+		}
+		// Cобыитие на изменение количество верных
+		void _variableGlobal_OnRemoveIndexAllWords(object sender, EventArgs e)
+		{
+			//Установка следующего шага
+			if (_variableGlobal.CountIndexAllWords !=0)
+			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
+		}
+
+		//-------------------------- Флаг Старта---------------------------
+		void _variableGlobal_OnFlagStart(object sender, EventArgs e)
+		{
+			_view.TimerLevelEnable= _variableGlobal.FlagStart;
+			_view.SetTimerStartEnable= _variableGlobal.FlagStart;
+							
+		}
+		//======================================================================
         #region Выбор папок
         // папка для словаря
 		void _view_E_Button_selectDirWordsPathClick(object sender, EventArgs e)
@@ -130,12 +185,12 @@ public class Control{
 		//Вывод результат
 		void OutResult(string result){
 			if (result == "верно") {
-				_view.Rezult = 	(_variableGlobal.CountVisible-1) + "  " 
+				_view.Rezult = 	(_variableGlobal.CountVisible) + "  " 
 							  	+ _variableGlobal.ReadStroka[ _variableGlobal.CurrentIndex][0] + "\t"  
 					    		+"верно" + Environment.NewLine + _view.Rezult  ;		
 			}
 			if (result == "не верно"){
-				_view.Rezult = 	(_variableGlobal.CountVisible-1) + "  "
+				_view.Rezult = 	(_variableGlobal.CountVisible) + "  "
 							+ _variableGlobal.ReadStroka[ _variableGlobal.CurrentIndex][0] + "\t"							
 							+ "не верно" 
 							+ "(" + _variableGlobal.NoCurrentVariant +")--->" + "\t" 
@@ -144,7 +199,7 @@ public class Control{
 			}
 			
 			if (result == "не знаю"){
-				_view.Rezult = 	(_variableGlobal.CountVisible-1) + "  "
+				_view.Rezult = 	(_variableGlobal.CountVisible) + "  "
 							+ _variableGlobal.ReadStroka[ _variableGlobal.CurrentIndex][0] + "\t"							
 							+ "не знаю" 
 							+ " --->" + "\t" 
@@ -162,10 +217,6 @@ public class Control{
 				SetColorVariant(3, Color.Red);
 				_view.SetTimerVarEnable= true ;
 				_view.TimerLevelEnable=false;
-				//_variableGlobal.AddIndexErrorWords(_variableGlobal.CurrentIndex);					
-				// Последний индекс списка индексов
-				//_variableGlobal.LastIndex = _logic.GetNextIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
-				//_view.Rezult =" не верно " +  Environment.NewLine + _view.Rezult ;
 			return;
 			}
 			//Если верно
@@ -180,7 +231,6 @@ public class Control{
 				
 			// Последний индекс списка
 			_variableGlobal.LastIndex = _logic.GetStartIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
-			//_view.Rezult =" верно "  + Environment.NewLine + _view.Rezult;
 			
 			}else {
 				// если неверно
@@ -191,20 +241,21 @@ public class Control{
 				_variableGlobal.AddIndexErrorWords(_variableGlobal.CurrentIndex);					
 			// Последний индекс списка индексов
 			_variableGlobal.LastIndex = _logic.GetNextIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
-			//_view.Rezult =" не верно " +  Environment.NewLine + _view.Rezult ;			
 			}
 			
-			//SetProgressBarTimeZero();
-			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
+			//-----------------------------------------------------------------
+			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
 		}
 
 		void _view_E_Label_unknownClick(object sender, EventArgs e)
 		{
 			if(_variableGlobal.FlagPausa) return;
 			
+			_view.TimerLevelEnable=false;
 			_view.ShowFormError(_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][0],_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][1],_variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][2]);			
+			//-------------------------------------------------------------
+			//_variableGlobal.SecLevel= _variableGlobal.MaxSecLevel*100;
 			//_view.TimerLevelEnable=true;
-			_variableGlobal.SecLevel= _variableGlobal.MaxSecLevel*100;
 		}
 		//Тестовые выводы
 		void TestOut(){
@@ -236,14 +287,40 @@ public class Control{
 			//--вывод текущих индексов для показа
 			
 				try {
+				if(_variableGlobal.CountIndexAllWords !=0)
 					_view.Tb_nextIndex =  _variableGlobal.CurrentIndex+"\t" +  _variableGlobal.ReadStroka[_variableGlobal.CurrentIndex][0] + "\t" + _variableGlobal.LastIndex +"\t" + _variableGlobal.GetIndexAllWords( _variableGlobal.LastIndex) + Environment.NewLine +_view.Tb_nextIndex ;
-	
+				
+					
 			} catch (Exception) {
 				_messageService.ShowExclamation("//--вывод текущих индексов для показа "+ _variableGlobal.LastIndex ) ;
 				
 			}
 			//===========================================================================================================
 			
+		}
+		
+		void Winner(){
+			if(_variableGlobal.CountIndexAllWords==0) {	
+				Display();
+				_variableGlobal.FlagStart=false;
+				_messageService.ShowMessage("Поздравляем!"
+                                            + Environment.NewLine
+                                            +"Все слова выучены!" 
+                                            + Environment.NewLine
+                                            +"Количество правильных слов - " + _variableGlobal.CountAllWords 
+                                            + Environment.NewLine
+                                            + "Сделано ошибок - " + _variableGlobal.CountErrorWords 
+                                            + Environment.NewLine
+                                            + "Всего показов - " + _variableGlobal.CountVisible
+                                           ); 
+					Stop();  
+					return ;
+			}
+			//_view.ProgressBarTimeEnable=false;
+			//_view.TimerLevelEnable=false;
+			//_view.SetTimerStartEnable=false;
+			
+		
 		}
 		
 		// Нажатие Варианта 1  
@@ -256,10 +333,11 @@ public class Control{
 			//			
 			Cycles();
 			//Сообщение
-			if(_variableGlobal.CountIndexAllWords==0) {	_messageService.ShowMessage("Поздравляем!"+ Environment.CommandLine +"Все слова выучены!"); return ;}
-			
+			Winner();		
+			//
 			TestOut();
 			//Установка следующего индекса для показа слова		
+		if(_variableGlobal.CountIndexAllWords!=0) 				
 			_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);		
 			
 		}
@@ -271,14 +349,16 @@ public class Control{
 			if(_variableGlobal.FlagPausa) return;
 			// обработка варианта
 			LogicaVar(2);
-			//
+			//Тестовая информация
 			Cycles();
 			//Сообщение
-			if(_variableGlobal.CountIndexAllWords==0) { Stop();	_messageService.ShowMessage("Поздравляем!"+ Environment.NewLine  +"Все слова выучены!"); return ;}
+			//if(_variableGlobal.CountIndexAllWords==0) { Stop();	_messageService.ShowMessage("Поздравляем!"+ Environment.NewLine  +"Все слова выучены!"); return ;}
+			Winner();
 			
 			TestOut();
 			
-			//Установка следующего индекса для показа слова		
+			//Установка следующего индекса для показа слова	
+		if(_variableGlobal.CountIndexAllWords!=0) 		
 			_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);				
 		}		
 	
@@ -297,16 +377,17 @@ public class Control{
 				_view.SetColorUnknow=Color.MistyRose;
 				_view.SetTimerVarEnable= false ;
 				_variableGlobal.SecVar = 0;
-			_view.TimerLevelEnable=true;	
+				if(_variableGlobal.CountIndexAllWords!=0)
+					_view.TimerLevelEnable=true;	
 				//_variableGlobal.SetSecVar(0);
 			}			
 		}
 #endregion	
-		void SetProgressBarTimeZero(){
-			_variableGlobal.SecLevel=0;
-		//	SetProgressBarTime(0);
-			_view.TimerLevelEnable=true ;
-		}
+//		void SetProgressBarTimeZero(){
+//			_variableGlobal.SecLevel=0;
+//		//	SetProgressBarTime(0);
+//			_view.TimerLevelEnable=true ;
+//		}
 
 		// Установка и вывод минут и секунд
 		void setTime(){
@@ -328,9 +409,10 @@ public class Control{
 		//Событие изменения значения секунд Уровня сложности			
 		void _variableGlobal_ValueChangedSecLevel(object sender, EventArgs e)
 		{
+			//if(_variableGlobal.SecLevel ==0 ) 
+				//NextStep();
 			if(_variableGlobal.SecLevel <=0 ){
-					_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
-				NextStep();
+					_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;					
 			}
 			_view.ProgressBarTime = _variableGlobal.SecLevel;
 		}
@@ -394,8 +476,9 @@ public class Control{
 			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
 			
 			//Текущий индекс
-			if(_variableGlobal.CountIndexAllWords!=0)_view.Index= _variableGlobal.CurrentIndex.ToString();
-			else _view.Index="-";
+//			if(_variableGlobal.CountIndexAllWords!=0)_view.Index= _variableGlobal.CurrentIndex.ToString();
+//			else _view.Index="-";
+			_view.Index=_variableGlobal.SecLevel.ToString();
 				
 			//Время независимое
 			//_view.Time = _logic.timeDisplay(_variableGlobal.SecStart, _variableGlobal.MinStart);			
@@ -403,6 +486,7 @@ public class Control{
 		
 		//Следующий шаг
 		void NextStep(){
+			
 			// Флаг пауза		
 			if(_variableGlobal.FlagPausa) return;
 			OutResult("не знаю");
@@ -415,7 +499,8 @@ public class Control{
 			Cycles();
 			//Сообщение
 				
-			//Установка следующего индекса для показа слова		
+			//Установка следующего индекса для показа слова	
+			if (_variableGlobal.CountIndexAllWords!=0)
 			_variableGlobal.CurrentIndex= _variableGlobal.GetIndexAllWords(_variableGlobal.LastIndex);				
 		}
 		
@@ -463,7 +548,7 @@ public class Control{
 			 Display();
 			
 			//Установка следующего шага
-			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
+			//_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
 			
 			//_variableGlobal.Step= _logic.NextStep(_variableGlobal.Step);
 			return true;
@@ -494,7 +579,7 @@ public class Control{
 			_variableGlobal.LastIndex=0;
 			_variableGlobal.FlagStart=false;
 			_variableGlobal.FlagPausa=false;
-			_variableGlobal.CountVisible=1; 
+			_variableGlobal.CountVisible=0; 
 			
 			//---очистка списка---------------------
 			_variableGlobal.ClearIndexErrorWords();
@@ -516,9 +601,9 @@ public class Control{
 			_variableGlobal.FlagStart = false ;			
 			Restart();
 			//Запуск Timer_start
-			_view.SetTimerStartEnable =false  ;
+			//_view.SetTimerStartEnable =false  ;
 			//Таймер сложности
-			_view.TimerLevelEnable=false;
+			//_view.TimerLevelEnable=false;
 			_view.ProgressBarTime =0;
 			//
 			//Видимость
@@ -537,33 +622,37 @@ public class Control{
 		}
 		
 		void SetLevelSetting(){
-			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * 100;
+			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
+			_view.ProgreesBarTimeVisible=true;
 			if(_variableGlobal.Level==0){
 				_variableGlobal.MaxSecLevel=0;
 				_variableGlobal.MaxError=0;
 				_variableGlobal.LevelText="легкий";
-				
+				_view.ProgreesBarTimeVisible=false;
 			}
 			
 			if(_variableGlobal.Level==1){
 				_variableGlobal.MaxSecLevel=10;
 				_variableGlobal.MaxError=10;
 				_variableGlobal.LevelText="средний";
-				_view.ProgressBarTimeMaxValue=10*100;
+				_view.ProgressBarTimeMaxValue=10*_variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel=10*_variableGlobal.levelMultiplier;
 			}
 			
 			if(_variableGlobal.Level==2){
 				_variableGlobal.MaxSecLevel=5;
 				_variableGlobal.MaxError=3;
 				_variableGlobal.LevelText="сложный";
-				_view.ProgressBarTimeMaxValue=5*100;
+				_view.ProgressBarTimeMaxValue=5*_variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel=5*_variableGlobal.levelMultiplier;
 			}
 			
 			if(_variableGlobal.Level==3){
 				_variableGlobal.MaxSecLevel=3;
-				_variableGlobal.MaxError=0;
+				_variableGlobal.MaxError=1;
 				_variableGlobal.LevelText="Экстремальный";
-				_view.ProgressBarTimeMaxValue=3*100;
+				_view.ProgressBarTimeMaxValue=3*_variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel=3*_variableGlobal.levelMultiplier;
 			}
 				
 		}
@@ -571,16 +660,11 @@ public class Control{
 		void Start(){
 			
 				//Установка флага включения кнопки старт
-			_variableGlobal.FlagStart = _logic.FlagOnOff(_variableGlobal.FlagStart);			
-			
-			//Запуск Timer_start
-			_view.SetTimerStartEnable= _variableGlobal.FlagStart;
-			
-					
+			_variableGlobal.FlagStart = _logic.FlagOnOff(_variableGlobal.FlagStart);					
 			
 			// Если флаг включен
 			if(_variableGlobal.FlagStart){
-				
+				_variableGlobal.CountVisible=1;
 				//Установки уровня сложности
 				SetLevelSetting();
 				
@@ -608,7 +692,8 @@ public class Control{
 		//Уровень сложности
 		void _view_E_Button_levelClick(object sender, EventArgs e)
 		{
-		_variableGlobal.Level =	_view.Level();
+		// Restart();
+		_variableGlobal.Level =	_view.Level( _variableGlobal.Level);
 		//_view.Rezult= _variableGlobal.Level.ToString();
 		SetLevelSetting();
 		_view.LevelText= _variableGlobal.LevelText;
@@ -628,7 +713,7 @@ public class Control{
 			_variableGlobal.FlagPausa  = _logic.FlagOnOff(_variableGlobal.FlagPausa);			
 			
 			//Запуск Timer_start
-			_view.SetTimerStartEnable=!_variableGlobal.FlagPausa;				
+			//_view.SetTimerStartEnable=!_variableGlobal.FlagPausa;				
 			
 			
 		}
