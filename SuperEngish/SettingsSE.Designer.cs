@@ -22,5 +22,17 @@ namespace SuperEngish {
 				return defaultInstance;
 			}
 		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("")]
+		public string dictFilePath {
+			get {
+				return ((string)(this["dictFilePath"]));
+			}
+			set {
+				this["dictFilePath"] = value;
+			}
+		}
 	}
 }

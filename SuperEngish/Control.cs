@@ -47,16 +47,39 @@ public class Control{
         _view.E_RadioButton_level3CheckedChanged+= _view_E_RadioButton_level3CheckedChanged;
         _view.E_RadioButton_level4CheckedChanged+= _view_E_RadioButton_level4CheckedChanged;
         _view.E_Button_settingStartClick+= _view_E_Button_settingStartClick;
+        _view.E_Button_saveClick+= _view_E_Button_saveClick;
+        _view.E_Button_loadClick+= _view_E_Button_loadClick;
+        _view.OnFileWordPath+= _view_OnFileWordPath;
+        _view.Onlabel_level+= _view_Onlabel_level;
         //_view.E_ProgressBar_timeClientSizeChanged += _view_E_ProgressBar_timeClientSizeChanged;
         
         _variableGlobal.ValueChangedSecLevel+= _variableGlobal_ValueChangedSecLevel;
         _variableGlobal.OnFlagStart+= _variableGlobal_OnFlagStart;
         _variableGlobal.OnRemoveIndexAllWords+= _variableGlobal_OnRemoveIndexAllWords;
         _variableGlobal.OnAddIndexErrorWords+= _variableGlobal_OnAddIndexErrorWords;
+        _variableGlobal.OnLevel+= _variableGlobal_OnLevel;
+        _variableGlobal.On_CountVisible+= _variableGlobal_On_CountVisible;
+        _variableGlobal.On_ReadStroka+= _variableGlobal_On_ReadStroka;
+        
 
         // Задание параметров формы при первоначальном запуске программы
         }
 
+	
+	
+      #region (((((((((((((((((((((((((((---НАСТРОЙКИ---)))))))))))))))))))))))))))
+		//Загрузка настроек
+		void _view_E_Button_loadClick(object sender, EventArgs e)
+		{
+			 _view.FileWordPath = SettingsSE.Default.dictFilePath;
+		}
+		//Сохранение настроек
+		void _view_E_Button_saveClick(object sender, EventArgs e)
+		{
+			SettingsSE.Default.dictFilePath= _view.FileWordPath;
+			SettingsSE.Default.Save();
+		}
+		#endregion
 		void _view_E_Button_settingStartClick(object sender, EventArgs e)
 		{
 			_view.TabControl1SelectedIndex=1;
@@ -104,14 +127,18 @@ public class Control{
 			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
 			if(_variableGlobal.MaxError!=0 && _view.SetTimerStartEnable )
 				if(_variableGlobal.CountErrorWords == _variableGlobal.MaxError){
-				_view.TimerLevelEnable=false;
-				_view.SetTimerStartEnable=false;
-				_messageService.ShowExclamation("Ай..ай..ай!" + Environment.NewLine
-				                                +"Слишком много ошибок!"  + Environment.NewLine
-				                                + "Попробуйте еще разок)");
-				                                //Stop();
-				                                Start();
-				                                Restart();
+				//_variableGlobal.FlagStart=false;
+				//VisibleText(false);
+				//   Start();
+				//                                Restart();
+				//_view.TimerLevelEnable=false;
+				//_view.SetTimerStartEnable=false;
+				   Stop();
+//				_messageService.ShowExclamation("Ай..ай..ай!" + Environment.NewLine
+//				                                +"Слишком много ошибок!"  + Environment.NewLine
+//				                                + "Попробуйте еще разок)");
+//				                             
+				                             
 				                               // Start();
 				                                //Start();
 				                                
@@ -135,7 +162,29 @@ public class Control{
 							
 		}
 		//======================================================================
-        #region Выбор папок
+		#region (((((((((((((((((((____Выбор папок______)))))))))))))))))))
+		//если изменилось значение поля ссылки файла
+			void _view_OnFileWordPath(object sender, EventArgs e)
+		{
+			try {
+				_view.DirWordsPath =  _logic.GetDirPathFromFileName( _view.FileWordPath);;
+			
+			//очищаем таблицу
+			_view.dataGridView1RowsClear();
+			
+			//создаем массив всех слов
+			_variableGlobal.ReadStroka=_logic.AddReadStroka(_logic.GetFileReadAllLines(_view.FileWordPath));
+			
+			//изменяемый список индексов всех слов
+			LoadIndexAllWords();
+			
+			//загружаем таблицу массивом всех слов			
+			_view.addGrids(_variableGlobal.ReadStroka);
+			} catch (Exception) {
+				
+				;
+			}
+		}
         // папка для словаря
 		void _view_E_Button_selectDirWordsPathClick(object sender, EventArgs e)
 		{
@@ -146,6 +195,9 @@ public class Control{
 		{
 			
 			_view.FileWordPath = _view.GetFileWordsPath ;
+			if(_view.FileWordPath !=""){
+				
+			
 			_view.DirWordsPath =  _logic.GetDirPathFromFileName( _view.FileWordPath);;
 			
 			//очищаем таблицу
@@ -159,7 +211,7 @@ public class Control{
 			
 			//загружаем таблицу массивом всех слов			
 			_view.addGrids(_variableGlobal.ReadStroka);
-			
+			}
 		}
 		
 		//изменяемый список индексов всех слов
@@ -180,6 +232,7 @@ public class Control{
 		void _view_E_Button_selectFileFotoPathClick(object sender, EventArgs e)
 		{
 			_view.FileFotoPath = _view.GetFileFotoPath;
+			if(_view.FileFotoPath !="")
 			_view.DirFotoPath=_logic.GetDirPathFromFileName( _view.FileFotoPath);
 		}
 
@@ -349,11 +402,6 @@ public class Control{
 					Stop();  
 					return ;
 			}
-			//_view.ProgressBarTimeEnable=false;
-			//_view.TimerLevelEnable=false;
-			//_view.SetTimerStartEnable=false;
-			
-		
 		}
 		
 		// Нажатие Варианта 1  
@@ -487,14 +535,28 @@ public class Control{
 			//Установка фона			
 		}
 		
+         //СОБЫТИЯ НА ДИСПЛЕЙ
+		void _variableGlobal_On_CountVisible(object sender, EventArgs e)
+		{
+			//Показано
+			_view.CountVisible = _variableGlobal.CountVisible.ToString();
+						
+		}
+
+		void _variableGlobal_On_ReadStroka(object sender, EventArgs e)
+		{
+			//Всего слов
+			_view.CountWords = _variableGlobal.ReadStroka.Length.ToString();
+		}
+
 		//Вывод информацию внизу панели
 		void Display(){			
 			//Показано
 			//_view.CountRead = _variableGlobal.Step.ToString();
-			_view.CountVisible = _variableGlobal.CountVisible.ToString();
+			//_view.CountVisible = _variableGlobal.CountVisible.ToString();
 						
 			//Всего слов
-			_view.CountWords = _variableGlobal.ReadStroka.Length.ToString();
+			//_view.CountWords = _variableGlobal.ReadStroka.Length.ToString();
 				
 			//Ошибок
 			_view.CountError=_variableGlobal.CountErrorWords.ToString();
@@ -514,7 +576,8 @@ public class Control{
 			_view.Index=_variableGlobal.SecLevel.ToString();
 				
 			//Время независимое
-			//_view.Time = _logic.timeDisplay(_variableGlobal.SecStart, _variableGlobal.MinStart);			
+			//_view.Time = _logic.timeDisplay(_variableGlobal.SecStart, _variableGlobal.MinStart);
+					
 		}
 		
 		//Следующий шаг
@@ -527,7 +590,9 @@ public class Control{
 			_variableGlobal.AddIndexErrorWords(_variableGlobal.CurrentIndex);					
 			// Последний индекс списка индексов
 			_variableGlobal.LastIndex = _logic.GetNextIndex(_variableGlobal.CountIndexAllWords,  _variableGlobal.LastIndex) ;
-			//
+			//Установка картинки если путь задан
+			if(_view.ChekFoto)
+			_view.SetBackgroundImage(_view.DirFotoPath + "f"+_logic.RandNum(0,50) +".jpg");
 			
 			Cycles();
 			//Сообщение
@@ -633,12 +698,9 @@ public class Control{
 			//Установка флага включения кнопки старт
 			_variableGlobal.FlagStart = false ;			
 			Restart();
-			//Запуск Timer_start
-			//_view.SetTimerStartEnable =false  ;
-			//Таймер сложности
-			//_view.TimerLevelEnable=false;
-			_view.ProgressBarTime =0;
-			//
+
+			//_view.ProgressBarTime =0;
+
 			//Видимость
 			VisibleText(false);
 			_view.ButtonPausaEnable=false;				
@@ -654,7 +716,29 @@ public class Control{
 			return true;
 		}
 		
-		void SetLevelSetting(){
+			void _view_Onlabel_level(object sender, EventArgs e)
+		{
+				;
+		}
+
+		void _variableGlobal_OnLevel(object sender, EventArgs e)
+		{
+			switch (_variableGlobal.Level) {
+						case 0:
+								 _view.LevelText="легкий";   break;
+						case 1:
+								_view.LevelText="средний";	break;
+						case 2:
+								_view.LevelText="сложный";	break;
+						case 3:
+								_view.LevelText="Экстремальный";	break;
+						default: 
+								_view.LevelText="легкий";		break;						
+						
+			};
+		}
+		void SetLevelSetting(){			
+			
 			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
 			_view.ProgreesBarTimeVisible=true;
 			if(_variableGlobal.Level==0){
@@ -686,12 +770,10 @@ public class Control{
 				_variableGlobal.LevelText="Экстремальный";
 				_view.ProgressBarTimeMaxValue=3*_variableGlobal.levelMultiplier;
 				_variableGlobal.SecLevel=3*_variableGlobal.levelMultiplier;
-			}
-				
+			}				
 		}
 			
-		void Start(){
-			
+		void Start(){			
 				//Установка флага включения кнопки старт
 			_variableGlobal.FlagStart = _logic.FlagOnOff(_variableGlobal.FlagStart);					
 			
@@ -718,10 +800,10 @@ public class Control{
 			// Если флаг выклчен
 			else{
 				//Видимость
-				Stop();
-				
+				Stop();				
 			}			
-		}	
+		}
+		
 		//Уровень сложности
 		void _view_E_Button_levelClick(object sender, EventArgs e)
 		{

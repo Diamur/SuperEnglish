@@ -86,6 +86,9 @@ namespace SuperEngish
 		event EventHandler OnFlagStart;
 		event EventHandler OnRemoveIndexAllWords;
 		event EventHandler OnAddIndexErrorWords;
+		event EventHandler OnLevel;
+		event EventHandler On_CountVisible;
+		event EventHandler On_ReadStroka;
 	}
 
 	public class VariableGlobal:  IVariableGlobal
@@ -137,17 +140,21 @@ namespace SuperEngish
 		public event EventHandler ValueChangedSecLevel;
 		public event EventHandler OnRemoveIndexAllWords;
 		public event EventHandler OnAddIndexErrorWords;
+		public event EventHandler OnLevel;
+		public event EventHandler On_ReadStroka;
+
+		public event EventHandler On_CountVisible;
 //--------------------------------------------------
+//if (On!= null) (this, EventArgs.Empty);}
+//--------------------------------------------------------
 		public int levelMultiplier { get {return _levelMultiplier;	}	set {_levelMultiplier=value;	}	}
 
 		
 		public string LevelText {get {return _levelText;} set {_levelText=value;} }
 		public int MaxSecLevel {get {return _maxSecLevel;} set {_maxSecLevel=value;}	}
 		public int MaxError { get {return _maxError ;}	set {_maxError =value;}	}
-		public int SecLevel { get {return _secLevel;}	set {if(_secLevel!=value) {_secLevel=value;  
-					if (ValueChangedSecLevel!= null)
-						ValueChangedSecLevel(this, EventArgs.Empty);}}	}
-		public int Level { get {return level ;} set {level=value;}}
+		public int SecLevel { get {return _secLevel;}	set {if(_secLevel!=value) {_secLevel=value; if (ValueChangedSecLevel!= null) ValueChangedSecLevel(this, EventArgs.Empty);}}	}
+		public int Level { get {return level ;} set {if(level!=value){level=value; if (OnLevel!= null) OnLevel(this, EventArgs.Empty);}}}
 		
 		//--------------------------------------------------------------------- 
 		public int LastIndex {get {return _lastIndex ;} set { _lastIndex=value;}}
@@ -160,9 +167,9 @@ namespace SuperEngish
 		//--------------------------------------------------------------------- 
 		public bool FlagPausa {	get { return  _pausaFlag ;}	set {_pausaFlag=value;} }		
 		//--------------------------------------------------------------------- 
-		public int CountVisible { get {return _countVisible;} set {_countVisible = value;}	}
+		public int CountVisible { get {return _countVisible;} set {if(_countVisible != value) {_countVisible = value; if (On_CountVisible!= null) On_CountVisible(this, EventArgs.Empty);} }	}
 		//--------------------------------------------------------------------- 
-		public bool FlagStart {	get {return _startFalg;} set {_startFalg= value; if (OnFlagStart!= null) OnFlagStart(this, EventArgs.Empty);} }		
+		public bool FlagStart {	get {return _startFalg;} set {if(_startFalg!= value){_startFalg= value; if (OnFlagStart!= null) OnFlagStart(this, EventArgs.Empty);}} }
 		//------Количество всего загруженных слов
 		public int CountReadStroka { get {return _readStroka.Length ;} }
 		//------Количество слов в справочнике
@@ -186,7 +193,7 @@ namespace SuperEngish
 		//--------------------------------------------------------------------- 
 		public int SecVar {	get { return _secVar;}	set {_secVar=value;} }		
 		// ------------------массив словаряy---------------------------------
-		public string[][] ReadStroka { get { return _readStroka;} set { _readStroka = value; } }
+		public string[][] ReadStroka { get { return _readStroka;} set { _readStroka = value; if (On_ReadStroka!= null) On_ReadStroka(this, EventArgs.Empty);} }
 		// ------------------Очистка списка---------------------------------
 		public void ClearIndexAllWords()		{indexAllWords.Clear();		}
 		// ------------------Очистка списка---------------------------------

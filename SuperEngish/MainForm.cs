@@ -68,8 +68,13 @@ namespace SuperEngish
 		public event EventHandler OnProgressBarTime;
 		public event EventHandler E_Form_Closed;
 
+		public event EventHandler Onlabel_level;
 		public event EventHandler E_Button_settingStartClick;
-		
+
+		public event EventHandler OnLabel_countVisible;
+		public event EventHandler OnFileWordPath;
+		public event EventHandler E_Button_saveClick;
+		public event EventHandler E_Button_loadClick;		
 		public event EventHandler E_RadioButton_level1CheckedChanged;
 		public event EventHandler E_RadioButton_level2CheckedChanged;
 		public event EventHandler E_RadioButton_level3CheckedChanged;
@@ -77,11 +82,11 @@ namespace SuperEngish
 		
 		public int TabControl1SelectedIndex {get {return tabControl1.SelectedIndex;	} set {tabControl1.SelectedIndex=value;}	}
 
-		
+		//if (On!= null) (this, EventArgs.Empty);
 		
 		public bool ProgreesBarTimeVisible {	get {return progressBar_time.Visible ;	}	set {	progressBar_time.Visible=value;}	}
 		public int ProgressBarTimeMaxValue {get { return progressBar_time.Maximum;}	set {progressBar_time.Maximum=value	;}		}
-		public string LevelText { get {return label_level.Text  ;} set {label_level.Text =value;} }
+		public string LevelText { get {return label_level.Text  ;} set {label_level.Text =value; if (Onlabel_level!= null) Onlabel_level(this, EventArgs.Empty);} }
 		public bool TimerLevelEnable {get {return timer_time.Enabled;} set {timer_time.Enabled=value;}	}
 		public bool ProgressBarTimeEnable {	get {return progressBar_time.Enabled ;} set { progressBar_time.Enabled=value;}	}
 		public int ProgressBarTime { get { return progressBar_time.Value; }	set { progressBar_time.Value=value ; if (OnProgressBarTime!= null) OnProgressBarTime(this, EventArgs.Empty); } }
@@ -93,7 +98,7 @@ namespace SuperEngish
 		public string Rezult {get {return textBox_Rezult.Text ;} set {textBox_Rezult.Text=value;}}
 
 		public string Index {set {label_index.Text =value;}}
-		public string CountVisible {set {label_countVisible.Text=value;}}
+		public string CountVisible {set {if(label_countVisible.Text!=value){ label_countVisible.Text=value; if (OnLabel_countVisible!= null) OnLabel_countVisible(this, EventArgs.Empty); }}}
 		
 		//------Тестовые поля--------
 		public string Tb_nextIndex {set {textBox_nextIndex.Text=value;}	get{return textBox_nextIndex.Text ;}}
@@ -121,7 +126,7 @@ namespace SuperEngish
 		
 		public string DirWordsPath {			get {return textBox_dirWordsPath.Text;	}			set {textBox_dirWordsPath.Text = value;	}		}
 		
-		public string FileWordPath {			get {return textBox_fileWordsPath.Text;	}			set {textBox_fileWordsPath.Text =value;	}		}
+		public string FileWordPath {			get {return textBox_fileWordsPath.Text;	}			set {textBox_fileWordsPath.Text =value; if (OnFileWordPath!= null) OnFileWordPath(this, EventArgs.Empty);	}		}
 		
 		public string GetDirWordsPath {	get {OpenFileDialog dlg = new OpenFileDialog(); if(dlg.ShowDialog() == DialogResult.OK) return Path.GetDirectoryName(dlg.FileName)+@"\"; return "";} }
 				
@@ -349,6 +354,18 @@ namespace SuperEngish
 	
 		}
 
+		public void SetBackgroundImage(string filePath){
+			try {
+				Bitmap b =  new Bitmap(filePath );
+			pictureBox1.BackgroundImage = b;
+			pictureBox1.BackgroundImageLayout = ImageLayout.Stretch ;
+				
+			} catch (Exception ) {
+				
+				MessageService m = new MessageService();
+			    m.ShowExclamation("Не заданы пути к файлам!");
+			}
+		}
 		
  #endregion		
  
@@ -585,6 +602,20 @@ namespace SuperEngish
 		{
 			//tabControl1.SelectedIndex=1;
 			if ( E_Button_settingStartClick !=null) E_Button_settingStartClick (this, EventArgs.Empty );
+		}
+		//Сохранить настройки
+		void Button_saveClick(object sender, EventArgs e)
+		{
+	     	if ( E_Button_saveClick !=null) E_Button_saveClick (this, EventArgs.Empty );
+		}
+		void Button_loadClick(object sender, EventArgs e)
+		{
+			if ( E_Button_loadClick !=null) E_Button_loadClick (this, EventArgs.Empty );
+		}
+		//Изменение текстаа
+		void TextBox_fileWordsPathTextChanged(object sender, EventArgs e)
+		{
+			;//if ( E_TextBox_fileWordsPathTextChanged !=null) E_TextBox_fileWordsPathTextChanged (this, EventArgs.Empty );
 		}	
 
     }
@@ -671,6 +702,7 @@ namespace SuperEngish
         void dataGridView1RowsClear();
         void ShowFormError(string word, string translate, string otvet);
         int Level(int level);
+        void SetBackgroundImage(string filePath);
         
         //События для управляющего кода  
         event EventHandler E_Button_selectDirWordsPathClick;
@@ -697,6 +729,10 @@ namespace SuperEngish
         event EventHandler E_RadioButton_level3CheckedChanged ;
         event EventHandler E_RadioButton_level4CheckedChanged ;
         event EventHandler E_Button_settingStartClick;
-        
+        event EventHandler E_Button_saveClick;
+        event EventHandler E_Button_loadClick;
+        event EventHandler OnFileWordPath;
+        event EventHandler Onlabel_level;
+        event EventHandler OnLabel_countVisible;
     }
 }
