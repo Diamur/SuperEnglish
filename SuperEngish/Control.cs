@@ -60,7 +60,12 @@ public class Control{
         _variableGlobal.OnLevel+= _variableGlobal_OnLevel;
         _variableGlobal.On_CountVisible+= _variableGlobal_On_CountVisible;
         _variableGlobal.On_ReadStroka+= _variableGlobal_On_ReadStroka;
-        
+        _variableGlobal.OnClearIndexErrorWords+= _variableGlobal_OnClearIndexErrorWords;
+        _variableGlobal.OnClearIndexAllWords+= _variableGlobal_OnClearIndexAllWords;
+        _variableGlobal.OnindexAllWords+= _variableGlobal_OnindexAllWords;
+        _variableGlobal.OnAddIndexAllWords+= _variableGlobal_OnAddIndexAllWords;
+        _variableGlobal.OnAddIndexLeanWords+= _variableGlobal_OnAddIndexLeanWords;
+        _variableGlobal.OnClearIndexLeanWords+= _variableGlobal_OnClearIndexLeanWords;
 
         // Задание параметров формы при первоначальном запуске программы
         }
@@ -119,9 +124,20 @@ public class Control{
 			if(_variableGlobal.SecLevel ==1) NextStep();
 			//if(_view.ProgressBarTime==100) NextStep();
 		}
+		
+		//Очистка списка ошибок
+		void _variableGlobal_OnClearIndexErrorWords(object sender, EventArgs e)
+		{
+			//Ошибок
+			_view.CountError=_variableGlobal.CountErrorWords.ToString();
+		}
+
         // Cобыитие на изменение количество ошибок
 		void _variableGlobal_OnAddIndexErrorWords(object sender, EventArgs e)
 		{
+			//Ошибок
+			_view.CountError=_variableGlobal.CountErrorWords.ToString();
+			
 			//Установка следующего шага
 			if (_variableGlobal.CountIndexAllWords !=0)
 			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
@@ -149,6 +165,12 @@ public class Control{
 		// Cобыитие на изменение количество верных
 		void _variableGlobal_OnRemoveIndexAllWords(object sender, EventArgs e)
 		{
+			//Прогресс Бар
+			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			
+			//Осталось
+			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+			
 			//Установка следующего шага
 			if (_variableGlobal.CountIndexAllWords !=0)
 			_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
@@ -387,7 +409,7 @@ public class Control{
 		
 		void Winner(){
 			if(_variableGlobal.CountIndexAllWords==0) {	
-				Display();
+				//Display();
 				_variableGlobal.FlagStart=false;
 				_messageService.ShowMessage("Поздравляем!"
                                             + Environment.NewLine
@@ -490,6 +512,8 @@ public class Control{
 		//Событие изменения значения секунд Уровня сложности			
 		void _variableGlobal_ValueChangedSecLevel(object sender, EventArgs e)
 		{
+			//Отображение на дисплеее секунд
+			_view.Index=_variableGlobal.SecLevel.ToString();
 			//if(_variableGlobal.SecLevel ==0 ) 
 				//NextStep();
 			if(_variableGlobal.SecLevel <=0 ){
@@ -545,10 +569,53 @@ public class Control{
 
 		void _variableGlobal_On_ReadStroka(object sender, EventArgs e)
 		{
+			//Прогресс Бар
+			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			
 			//Всего слов
 			_view.CountWords = _variableGlobal.ReadStroka.Length.ToString();
+			
+			
 		}
 
+		void _variableGlobal_OnClearIndexAllWords(object sender, EventArgs e)
+		{
+			//Прогресс Бар
+			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			
+			//Осталось
+			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+		}
+
+		void _variableGlobal_OnindexAllWords(object sender, EventArgs e)
+		{
+			//Прогресс Бар
+			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			
+			//Осталось
+			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+		}
+
+		void _variableGlobal_OnAddIndexAllWords(object sender, EventArgs e)
+		{
+			//Прогресс Бар
+			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			
+			//Осталось
+			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+		}
+
+		void _variableGlobal_OnAddIndexLeanWords(object sender, EventArgs e)
+		{
+			//Верно
+			_view.CountCurrent = _variableGlobal.CountLeanWords.ToString();	
+		}
+
+		void _variableGlobal_OnClearIndexLeanWords(object sender, EventArgs e)
+		{
+			//Верно
+			_view.CountCurrent = _variableGlobal.CountLeanWords.ToString();		
+		}
 		//Вывод информацию внизу панели
 		void Display(){			
 			//Показано
@@ -559,21 +626,21 @@ public class Control{
 			//_view.CountWords = _variableGlobal.ReadStroka.Length.ToString();
 				
 			//Ошибок
-			_view.CountError=_variableGlobal.CountErrorWords.ToString();
+			//_view.CountError=_variableGlobal.CountErrorWords.ToString();
 			
 			//Осталось
-			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+			//_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
 			
 			//Верно
-			_view.CountCurrent = _variableGlobal.CountLeanWords.ToString();		
+			//_view.CountCurrent = _variableGlobal.CountLeanWords.ToString();		
 						
 			//Прогресс Бар
-			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			//_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
 			
 			//Текущий индекс
 //			if(_variableGlobal.CountIndexAllWords!=0)_view.Index= _variableGlobal.CurrentIndex.ToString();
 //			else _view.Index="-";
-			_view.Index=_variableGlobal.SecLevel.ToString();
+			//_view.Index=_variableGlobal.SecLevel.ToString();
 				
 			//Время независимое
 			//_view.Time = _logic.timeDisplay(_variableGlobal.SecStart, _variableGlobal.MinStart);
@@ -643,7 +710,7 @@ public class Control{
 			_variableGlobal.AddIndexReadyWords(_variableGlobal.CurrentIndex);
 			
 			//Вывод данных на нижнюю панель
-			 Display();
+			 //Display();
 			
 			//Установка следующего шага
 			//_variableGlobal.CountVisible= ++_variableGlobal.CountVisible;
@@ -690,7 +757,7 @@ public class Control{
 			_view.Tb_index= "";
 			_view.Tb_nextIndex ="";
 			_view.Rezult="";
-			Display();			
+			//Display();			
 		}
 		
 		//стоп
@@ -707,7 +774,7 @@ public class Control{
 			//Текст кнопки
 			_view.ButtonStartText="Старт";
 			//
-			Display();			
+			//Display();			
 		}
 		
 		// Проверка включения легкого уровня сложности
@@ -795,7 +862,7 @@ public class Control{
 				StepLogika();
 				//Видимость
 				VisibleText(true);	
-				Display();
+				//Display();
 			}			
 			// Если флаг выклчен
 			else{
