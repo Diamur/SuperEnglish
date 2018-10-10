@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.Media;
 
 
 namespace SuperEngish.BL
@@ -28,12 +29,41 @@ namespace SuperEngish.BL
  	int[] ArrToArr(int countArr);
  	int GetNextIndex(int countArr, int lastIndex); 	
  	int GetStartIndex(int countArr, int lastIndex);
+ 	void PlayError();
+ 	void PlayTime();
+ 	void PlayRating(int num);
+ 	void PlayTak();
     }
     
 
   
   public class Logic: ILogic  
-    {
+  {	
+    		  		
+  		//((((((((((((((((----------Воспроизведение  звука---------
+  		public void PlayError(){
+  			MyMedia _myMedia= new MyMedia();
+  			_myMedia.Error( RandNum(1,13));
+  		}
+  		
+  		public void PlayTime(){
+  			MyMedia _myMedia= new MyMedia();
+  			_myMedia.Time ( RandNum(1,5));
+  		}
+  		
+  		public void PlayRating(int num){
+  			MyMedia _myMedia= new MyMedia();
+  			_myMedia.Rating  (num);
+  		}
+  		
+  		public void PlayTak(){
+  			MyMedia _myMedia= new MyMedia();
+  			_myMedia.Tak();
+  		}
+  		
+  		
+  		//((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+  		
   		//Взять следующий индекс
   		public int GetNextIndex(int countArr, int lastIndex){  
 				if(lastIndex ==countArr-1) return 0;
@@ -62,8 +92,7 @@ namespace SuperEngish.BL
 	  			return t;
 	  		}
 	  		
-        // Поля текущего класса
-        
+        // Поля текущего класса        
         public int RandNum(int min,int max){
         	// создаем экземпляр класса Random для генерирования случайных чисел
 		    Random rand = new Random();		   
@@ -79,7 +108,7 @@ namespace SuperEngish.BL
         //Секунды
         //Проверить секунды вариантов
         public bool isSecVar(int s){
-        	if (s > 3 ) return true;
+        	if (s > 5) return true;
         		return false;
         }
         

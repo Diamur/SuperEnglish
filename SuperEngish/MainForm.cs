@@ -8,6 +8,7 @@ using System.Drawing;
 //using System.Web;
 using System.Windows.Forms;
 using System.IO;
+using System.Media;
 //using NAudio.Wave;
 
 
@@ -73,16 +74,29 @@ namespace SuperEngish
 
 		public event EventHandler OnLabel_countVisible;
 		public event EventHandler OnFileWordPath;
+
+		public event EventHandler OnFileFotoPath;
+
 		public event EventHandler E_Button_saveClick;
 		public event EventHandler E_Button_loadClick;		
 		public event EventHandler E_RadioButton_level1CheckedChanged;
 		public event EventHandler E_RadioButton_level2CheckedChanged;
 		public event EventHandler E_RadioButton_level3CheckedChanged;
+
+		public event EventHandler RadioButtonDialogLevel1Cheked;
+		public event EventHandler RadioButtonDialogLevel2Cheked;
+		public event EventHandler RadioButtonDialogLevel3Cheked;
+		public event EventHandler RadioButtonDialogLevel4Cheked;
+		
 		public event EventHandler E_RadioButton_level4CheckedChanged;	
 		
 		public int TabControl1SelectedIndex {get {return tabControl1.SelectedIndex;	} set {tabControl1.SelectedIndex=value;}	}
-
-		//if (On!= null) (this, EventArgs.Empty);
+//{get {;}	set {;}	}
+public bool RadioButton_level1 {get {return radioButton_level1.Checked;}	set {if(radioButton_level1.Checked!=value)radioButton_level1.Checked=value;}	}
+public bool RadioButton_level2 {get {return radioButton_level2.Checked;}		set {if(radioButton_level2.Checked!=value)radioButton_level2.Checked=value;}	}
+public bool RadioButton_level3 {get {return radioButton_level3.Checked;}	set {if(radioButton_level3.Checked!=value)radioButton_level3.Checked=value;}	}
+public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if(radioButton_level4.Checked!=value)radioButton_level4.Checked=value;}	}
+//if (On!= null) (this, EventArgs.Empty);
 		
 		public bool ProgreesBarTimeVisible {	get {return progressBar_time.Visible ;	}	set {	progressBar_time.Visible=value;}	}
 		public int ProgressBarTimeMaxValue {get { return progressBar_time.Maximum;}	set {progressBar_time.Maximum=value	;}		}
@@ -133,7 +147,7 @@ namespace SuperEngish
 		public string GetFileWordsPath { get { OpenFileDialog dlg = new OpenFileDialog(); if(dlg.ShowDialog() == DialogResult.OK) return dlg.FileName; return "";}	}
 		
 		public string DirFotoPath {	get { return textBox_dirFotoPath.Text ;} set {textBox_dirFotoPath.Text = value;} }
-		public string FileFotoPath { get {return textBox_fileFotoPath.Text ;} set {textBox_fileFotoPath.Text = value;} }
+		public string FileFotoPath { get {return textBox_fileFotoPath.Text ;} set {textBox_fileFotoPath.Text = value; if (OnFileFotoPath!= null) OnFileFotoPath(this, EventArgs.Empty);} }
 		public string GetDirFotoPath { get {OpenFileDialog dlg = new OpenFileDialog(); if(dlg.ShowDialog() == DialogResult.OK) return Path.GetDirectoryName(dlg.FileName)+@"\";	return "";}	}
 		public string GetFileFotoPath {	get {OpenFileDialog dlg = new OpenFileDialog(); if(dlg.ShowDialog() == DialogResult.OK)	return dlg.FileName; return "";} }
 		
@@ -372,38 +386,12 @@ namespace SuperEngish
 		//============ ТЕСТОВЫЕ КНОПКИ =================================
 		void Button1Click(object sender, EventArgs e)
 		{
-#region Загрузка картинки
-//		try {
-//				Bitmap b =  new Bitmap(textBox_fileFotoPath.Text);
-//			pictureBox1.BackgroundImage = b;
-//			pictureBox1.BackgroundImageLayout = ImageLayout.Stretch ;
-//				
-//			} catch (Exception ) {
-//				
-//				MessageService m = new MessageService();
-//			    m.ShowExclamation("Не заданы пути к файлам!");
-//			}
-//
-#endregion
-		
+			//Относительный путь
+			string path = Environment.CurrentDirectory + @"\media\tada.wav";
 
-			flevel = new FormLevel();
+			SoundPlayer media = new SoundPlayer(path);
 			
-			int width = Screen.PrimaryScreen.Bounds.Width;
-			int height = Screen.PrimaryScreen.Bounds.Height;
-			flevel.Location = new System.Drawing.Point((int)((double)width/2), (int)((double)height/2));
-
-			//Location loc= p;
-			
-			
-			//flevel.Location = loc;
-			
-			
-			flevel.ShowDialog();
-			if(flevel.radioButton_level1.Checked) textBox_Rezult.Text="Легкий";
-			if(flevel.radioButton_level2.Checked) textBox_Rezult.Text="Средний";
-			if(flevel.radioButton_level3.Checked) textBox_Rezult.Text="Сложный";
-			if(flevel.radioButton_level4.Checked) textBox_Rezult.Text="Экстремельный";
+			media.Play();
 
 		}
 		
@@ -413,24 +401,19 @@ namespace SuperEngish
 			int width = Screen.PrimaryScreen.Bounds.Width;
 			int height = Screen.PrimaryScreen.Bounds.Height;
 			flevel.Location = new System.Drawing.Point((int)((double)width/2), (int)((double)height/2));
-
-			//Location loc= p;
-			
-			
-			//flevel.Location = loc;
+	
 			switch (level) {
 					case 0: flevel.radioButton_level1.Checked=true; break;
 					case 1: flevel.radioButton_level2.Checked=true; break;
 					case 2: flevel.radioButton_level3.Checked=true; break;
 					case 3: flevel.radioButton_level4.Checked=true; break;
-			}
-			
+			}			
 			
 			flevel.ShowDialog();
-			if(flevel.radioButton_level1.Checked) return 0;// textBox_Rezult.Text="Легкий";
-			if(flevel.radioButton_level2.Checked) return 1;// textBox_Rezult.Text="Средний";
-			if(flevel.radioButton_level3.Checked) return 2;//textBox_Rezult.Text="Сложный";
-			if(flevel.radioButton_level4.Checked) return 3;//textBox_Rezult.Text="Экстремельный";
+			if(flevel.radioButton_level1.Checked){ if(RadioButtonDialogLevel1Cheked!= null) RadioButtonDialogLevel1Cheked(this, EventArgs.Empty); return 0;}// textBox_Rezult.Text="Легкий";
+			if(flevel.radioButton_level2.Checked) { if(RadioButtonDialogLevel2Cheked!= null) RadioButtonDialogLevel2Cheked(this, EventArgs.Empty); return 1;}// textBox_Rezult.Text="Средний";
+			if(flevel.radioButton_level3.Checked) { if(RadioButtonDialogLevel3Cheked!= null) RadioButtonDialogLevel3Cheked(this, EventArgs.Empty); return 2;}//textBox_Rezult.Text="Сложный";
+			if(flevel.radioButton_level4.Checked) { if(RadioButtonDialogLevel4Cheked!= null) RadioButtonDialogLevel4Cheked(this, EventArgs.Empty); return 3;}//textBox_Rezult.Text="Экстремельный";
 			return 0;
 		}
 		
@@ -616,6 +599,10 @@ namespace SuperEngish
 		void TextBox_fileWordsPathTextChanged(object sender, EventArgs e)
 		{
 			;//if ( E_TextBox_fileWordsPathTextChanged !=null) E_TextBox_fileWordsPathTextChanged (this, EventArgs.Empty );
+		}
+		void Button2_stopClick(object sender, EventArgs e)
+		{
+	
 		}	
 
     }
@@ -631,6 +618,10 @@ namespace SuperEngish
     	bool TimerLevelEnable  { get; set;}
     	int ProgressBarTimeMaxValue  { get; set;}
     	bool ProgreesBarTimeVisible  { get; set;}
+    	bool RadioButton_level1 { get; set;}
+    	bool RadioButton_level2 { get; set;}
+    	bool RadioButton_level3 { get; set;}
+    	bool RadioButton_level4 { get; set;}
     	
     	
     	//Тестовые поля
@@ -732,7 +723,13 @@ namespace SuperEngish
         event EventHandler E_Button_saveClick;
         event EventHandler E_Button_loadClick;
         event EventHandler OnFileWordPath;
+        event EventHandler OnFileFotoPath;
         event EventHandler Onlabel_level;
         event EventHandler OnLabel_countVisible;
+        event EventHandler RadioButtonDialogLevel1Cheked;
+        event EventHandler RadioButtonDialogLevel2Cheked;
+        event EventHandler RadioButtonDialogLevel3Cheked;
+        event EventHandler RadioButtonDialogLevel4Cheked;
+        
     }
 }

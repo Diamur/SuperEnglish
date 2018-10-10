@@ -106,6 +106,7 @@ namespace SuperEngish
 		private System.Windows.Forms.Button button_load;
 		private System.Windows.Forms.Button button_save;
 		private System.Windows.Forms.TabPage tabPage_rezult;
+		private System.Windows.Forms.Button button2_stop;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -131,6 +132,7 @@ namespace SuperEngish
 			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage_setting = new System.Windows.Forms.TabPage();
+			this.button2_stop = new System.Windows.Forms.Button();
 			this.button_load = new System.Windows.Forms.Button();
 			this.button_save = new System.Windows.Forms.Button();
 			this.button_settingStart = new System.Windows.Forms.Button();
@@ -255,6 +257,7 @@ namespace SuperEngish
 			// 
 			// tabPage_setting
 			// 
+			this.tabPage_setting.Controls.Add(this.button2_stop);
 			this.tabPage_setting.Controls.Add(this.button_load);
 			this.tabPage_setting.Controls.Add(this.button_save);
 			this.tabPage_setting.Controls.Add(this.button_settingStart);
@@ -269,6 +272,16 @@ namespace SuperEngish
 			this.tabPage_setting.TabIndex = 3;
 			this.tabPage_setting.Text = "Настройки";
 			this.tabPage_setting.UseVisualStyleBackColor = true;
+			// 
+			// button2_stop
+			// 
+			this.button2_stop.Location = new System.Drawing.Point(277, 469);
+			this.button2_stop.Name = "button2_stop";
+			this.button2_stop.Size = new System.Drawing.Size(89, 23);
+			this.button2_stop.TabIndex = 10;
+			this.button2_stop.Text = "Выход";
+			this.button2_stop.UseVisualStyleBackColor = true;
+			this.button2_stop.Click += new System.EventHandler(this.Button_closeClick);
 			// 
 			// button_load
 			// 

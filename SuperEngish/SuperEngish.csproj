@@ -69,6 +69,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageService.cs" />
+    <Compile Include="MyMedia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsSE.Designer.cs">
@@ -80,6 +81,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Plan.txt" />
     <None Include="SettingsSE.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SettingsSE.Designer.cs</LastGenOutput>
