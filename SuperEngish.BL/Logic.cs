@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Text;
+//using System.Text;
 using System.Collections.Generic;
-using System.Media;
+//using System.Media;
 
 
 namespace SuperEngish.BL
@@ -31,38 +31,81 @@ namespace SuperEngish.BL
  	int GetStartIndex(int countArr, int lastIndex);
  	void PlayError();
  	void PlayTime();
- 	void PlayRating(int num);
+ 	void PlayRating(int rating);
  	void PlayTak();
+ 	int GetRating(int level, int countAllWord,  int countError);
+ 	int GetOcenka(int rating);
     }
     
 
   
   public class Logic: ILogic  
   {	
+  		MyMedia _myMedia= new MyMedia();
+  		//((((((((((((((((----------Файлы---------------)))))))))))))))))
+  		//Открыть путь каталога
+//  		public string GetPathDir(){
+//  			
+//  		}
     		  		
-  		//((((((((((((((((----------Воспроизведение  звука---------
+  		//((((((((((((((((----------Воспроизведение  звука---------********-*-*-*-*09975
   		public void PlayError(){
-  			MyMedia _myMedia= new MyMedia();
+  			//MyMedia _myMedia= new MyMedia();
   			_myMedia.Error( RandNum(1,13));
   		}
   		
   		public void PlayTime(){
-  			MyMedia _myMedia= new MyMedia();
+  			//MyMedia _myMedia= new MyMedia();
   			_myMedia.Time ( RandNum(1,5));
   		}
   		
-  		public void PlayRating(int num){
-  			MyMedia _myMedia= new MyMedia();
-  			_myMedia.Rating  (num);
+  		public void PlayRating(int rating){
+  			//MyMedia _myMedia= new MyMedia();
+  			_myMedia.Rating(rating);
   		}
   		
   		public void PlayTak(){
-  			MyMedia _myMedia= new MyMedia();
+  			//MyMedia _myMedia= new MyMedia();
   			_myMedia.Tak();
   		}
   		
   		
   		//((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+  		//Расчет оценки
+  		public int GetOcenka(int rating){
+  			switch (rating ) {
+  					case 2: return 5;
+  					case 1: return 4;
+  					case 0: return 2; 			 					
+  			}
+  			return 2;
+  		}
+  		
+  		//Расчет рейтинга
+  		public int GetRating(int level, int countAllWord,  int countError){
+  			switch (level) {
+  					case 0:{
+  						if(countError==0) return 2;
+  						if(	100*(double)countError/(double)countAllWord < 33) return 1;
+  						if(100*(double)countError/(double)countAllWord > 33) return 0;
+  					}; break;
+  					case 1:{
+  						if(countError==0) return 2;
+  						if(	countError < 4) return 1;
+  						if(countError > 4) return 0;
+  					}; break;
+  					case 2:{
+  						if(countError==0) return 2;
+  						if(	countError==1) return 1;
+  						if(countError>1) return 0;
+  					}; break;
+  					case 3:{
+  						if(countError==0) return 2;
+  						if(	countError==1) return 0;  						
+  					}  	; break;
+  			}
+  			return 2;
+  		}
   		
   		//Взять следующий индекс
   		public int GetNextIndex(int countArr, int lastIndex){  
