@@ -40,7 +40,6 @@ H:\dev\SuperEngish\SuperEngish\obj\Debug\SuperEngish.FormError.resources
 F:\dev\SuperEngish\SuperEngish\obj\Debug\SuperEngish.FormLevel.resources
 G:\dev\SuperEngish\SuperEngish\obj\Debug\SuperEngish.FormLevel.resources
 H:\dev\SuperEngish\SuperEngish\obj\Debug\SuperEngish.FormLevel.resources
-G:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.csprojResolveAssemblyReference.cache
 G:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.FormError.resources
 G:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.FormLevel.resources
 G:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.MainForm.resources
@@ -82,3 +81,4 @@ H:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.MainForm.resources
 H:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.csproj.GenerateResource.Cache
 H:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.exe
 H:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.pdb
+G:\dev\SuperEnglish\SuperEngish\obj\Debug\SuperEngish.csprojResolveAssemblyReference.cache

@@ -49,6 +49,7 @@ public class Control{
         _view.E_Button_settingStartClick+= _view_E_Button_settingStartClick;
         _view.E_Button_saveClick+= _view_E_Button_saveClick;
         _view.E_Button_loadClick+= _view_E_Button_loadClick;
+        _view.E_ListView1SelectedIndexChanged+= _view_E_ListView1SelectedIndexChanged;
         _view.OnFileWordPath+= _view_OnFileWordPath;
         _view.OnFileFotoPath+= _view_OnFileFotoPath;
         _view.RadioButtonDialogLevel1Cheked+= _view_RadioButtonDialogLevel1Cheked;
@@ -163,9 +164,12 @@ public class Control{
 			//_messageService.ShowMessage("Ура Заработало");
 			_view.TimerLevelEnable=true ;		
 		}
+		//Значение прогрессБара в цифре внизу на панел
 		void _view_OnProgressBarTime(object sender, EventArgs e)
 		{
-			_view.Index=_variableGlobal.SecLevel.ToString();
+			//_view.Index=_variableGlobal.SecLevel.ToString();
+			
+			
 			//if(_variableGlobal.SecLevel ==1) NextStep();
 			//if(_view.ProgressBarTime==100) NextStep();
 		}
@@ -208,7 +212,29 @@ public class Control{
 				;
 			}
 		}
-
+			
+         // При выборе из листвьювер
+		void _view_E_ListView1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//создаем массив всех слов
+			if(_view.GetItemListView() != "")
+			_variableGlobal.ReadStroka=_logic.AddReadStroka(_logic.GetFileReadAllLines(_view.DirWordsPath + _view.GetItemListView() ));
+			else return;
+			
+			//Очищаем список
+			_variableGlobal.ClearIndexAllWords();
+			//очищаем таблицу
+			_view.dataGridView1RowsClear();
+			
+			
+			//изменяемый список индексов всех слов
+			LoadIndexAllWords();
+			
+			//загружаем таблицу массивом всех слов			
+			_view.addGrids(_variableGlobal.ReadStroka);
+			
+		
+		}
 		void _view_OnFileFotoPath(object sender, EventArgs e)
 		{
 			try {
@@ -232,22 +258,23 @@ public class Control{
 			if(_view.FileWordPath !=""){
 				
 			
-			_view.DirWordsPath =  _logic.GetDirPathFromFileName( _view.FileWordPath);;
+			_view.DirWordsPath =  _logic.GetDirPathFromFileName( _view.FileWordPath);
 			
 			//Очищаем список
 			_variableGlobal.ClearIndexAllWords();
 			//очищаем таблицу
-			_view.dataGridView1RowsClear();
-			
+			_view.dataGridView1RowsClear();			
 			//создаем массив всех слов
-			_variableGlobal.ReadStroka=_logic.AddReadStroka(_logic.GetFileReadAllLines(_view.FileWordPath));
-			
+			_variableGlobal.ReadStroka=_logic.AddReadStroka(_logic.GetFileReadAllLines(_view.FileWordPath));			
 			//изменяемый список индексов всех слов
-			LoadIndexAllWords();
-			
+			LoadIndexAllWords();			
 			//загружаем таблицу массивом всех слов			
 			_view.addGrids(_variableGlobal.ReadStroka);
-			}
+			}			
+			//Загрузка списка файлов
+			_view.SetListFilesListView(_view.DirWordsPath);
+			
+			
 		}
 		
 		//изменяемый список индексов всех слов
@@ -274,8 +301,7 @@ public class Control{
 
 		void _view_E_Button_testVarClick(object sender, EventArgs e)
 		{
-			throw new NotImplementedException();
-			
+			throw new NotImplementedException();			
 		}
 		void _view_E_Button_testStartClick(object sender, EventArgs e)
 		{
@@ -457,6 +483,7 @@ public class Control{
 			_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
 		}
 		
+		
 		void  StepLogika()
 		{				
 //			//Запоминание индекс правильного ответа		
@@ -465,6 +492,20 @@ public class Control{
 //			else {	
 //				VisibleText(false);					
 //			}
+			
+			//======================
+			
+			//Заполнение
+			//Слова
+//			_view.SetWord = _variableGlobal.ReadStroka[nextIndex][0];			
+//			//Транслита				
+//			_view.SetTranslate = _variableGlobal.ReadStroka[nextIndex][1];
+//			// Запоминание правильного варианта
+//			_variableGlobal.CurrentVariant =_variableGlobal.ReadStroka[nextIndex][2];
+//			// Запоминание Неправильного слова
+//			_variableGlobal.NoCurrentVariant = _variableGlobal.ReadStroka[_logic.GetIndexNoCurrentWord(_variableGlobal.ReadStroka , nextIndex)][2];
+			//==========================
+			
 			//Заполнение
 			FillLabelsForms(_variableGlobal.CurrentIndex);			
 				
@@ -496,7 +537,8 @@ public class Control{
 			
 			else{
 				_variableGlobal.FlagStart=false;
-				_logic.PlayRating(0);
+				//_logic.PlayRating(0);
+				_logic.PlayRating(_logic.GetRating(_variableGlobal.Level, _variableGlobal.CountAllWords,_variableGlobal.CountErrorWords));
 				_messageService.ShowMessage("Поздравляем!"
                                             + Environment.NewLine
                                             +"Все слова выучены!" 
@@ -506,6 +548,8 @@ public class Control{
                                             + "Сделано ошибок - " + _variableGlobal.CountErrorWords 
                                             + Environment.NewLine
                                             + "Всего показов - " + _variableGlobal.CountVisible
+                                            + Environment.NewLine
+                                            + "Оценка - " + _logic.GetOcenka(_logic.GetRating(_variableGlobal.Level, _variableGlobal.CountAllWords,_variableGlobal.CountErrorWords))
                                            ); 
 					Stop();  
 					return ;
@@ -543,6 +587,17 @@ public class Control{
 			
 			//if(_variableGlobal.SecLevel ==0 )
 				//NextStep();
+				if( _variableGlobal.SecLevel < _view.ProgressBarTimeMaxValue /2 ){
+					_view.LabelVar2Visible=true;
+					_view.LabelVar1Enable= false;
+					
+				}else {
+					_view.LabelVar1Enable= true;
+					_view.LabelVar2Visible=false;
+					
+				}
+				
+			
 			if(_variableGlobal.SecLevel ==0) {
 				_logic.PlayTime();
 			     NextStep();
@@ -613,12 +668,11 @@ public class Control{
 		}		
 		
 		//Заполнение
-		void FillLabelsForms(int nextIndex){
-			
+		void FillLabelsForms(int nextIndex){			
 			//Заполнение
-				//Слова
+			//Слова
 			_view.SetWord = _variableGlobal.ReadStroka[nextIndex][0];			
-				//Транслита				
+			//Транслита				
 			_view.SetTranslate = _variableGlobal.ReadStroka[nextIndex][1];
 			// Запоминание правильного варианта
 			_variableGlobal.CurrentVariant =_variableGlobal.ReadStroka[nextIndex][2];
@@ -665,25 +719,25 @@ public class Control{
 			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
 			
 			//Осталось
-			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+			_view.CountResidul = _variableGlobal.CountIndexAllWords.ToString();
 		}
 
 		void _variableGlobal_OnindexAllWords(object sender, EventArgs e)
 		{
 			//Прогресс Бар
-			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			_view.ProgressBarCountLean = _logic.Procent(_variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
 			
 			//Осталось
-			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();
+			_view.CountResidul = _variableGlobal.CountIndexAllWords.ToString();
 		}
 
 		void _variableGlobal_OnAddIndexAllWords(object sender, EventArgs e)
 		{
 			//Прогресс Бар
-			_view.ProgressBarCountLean = _logic.Procent( _variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
+			_view.ProgressBarCountLean = _logic.Procent(_variableGlobal.ReadStroka.Length, (_variableGlobal.ReadStroka.Length - _variableGlobal.CountIndexAllWords));
 			
 			//Осталось
-			_view.CountResidul= _variableGlobal.CountIndexAllWords.ToString();			
+			_view.CountResidul = _variableGlobal.CountIndexAllWords.ToString();			
 			
 		}
 
@@ -709,9 +763,12 @@ public class Control{
 		void VisibleText(bool b){
 			_view.LabelWordEnable=b;
 			if(!_view.ChekTranslate) _view.LabelTransEnable = false;
-			else _view.LabelTransEnable=b;			
-			_view.LabelVar1Enable=b;
-			_view.LabelVar2Enable=b;
+			else _view.LabelTransEnable=b;
+			if(!b){
+			_view.LabelVar1Visible=b;
+			_view.LabelVar2Visible=b;
+			}
+			else _view.LabelVar1Visible=b;
 			_view.Label_unknown_Visible=b;
 		}		
 		// ------Кн. Рестарт--------------
@@ -756,7 +813,8 @@ public class Control{
 			_variableGlobal.FlagStart = false ;			
 			//Видимость
 			VisibleText(false);		
-			//_logic.PlayError();
+			_logic.PlayError();
+			_logic.PlayRating(_logic.GetRating(_variableGlobal.Level, _variableGlobal.CountAllWords,_variableGlobal.CountErrorWords));
 			_messageService.ShowExclamation("Ай..ай..ай!" + Environment.NewLine
 				                                +"Слишком много ошибок для этого режима!"  + Environment.NewLine
 				                                + "Попробуйте еще разок(:");			
@@ -777,51 +835,57 @@ public class Control{
 		void _variableGlobal_OnLevel(object sender, EventArgs e)
 		{
 			switch (_variableGlobal.Level) {
-						case 0: 
-								_view.LevelText="легкий"; 		 break;
-						case 1:	
-								_view.LevelText="средний"; 			break;
-						case 2:
-								_view.LevelText="сложный"; 		 	break;
-						case 3:
-								_view.LevelText="Экстремальный"; break;
-						default: 
-								_view.LevelText="легкий";	 		break;						
+				case 0: 
+					_view.LevelText = "легкий";
+					break;
+				case 1:	
+					_view.LevelText = "средний";
+					break;
+				case 2:
+					_view.LevelText = "сложный";
+					break;
+				case 3:
+					_view.LevelText = "Экстремальный";
+					break;
+				default: 
+					_view.LevelText = "легкий";
+					break;						
 						
 			};
 		}
 		
-		void SetLevelSetting(){			
+		void SetLevelSetting()
+		{			
 			
-			if(_variableGlobal.Level==0){
-				_variableGlobal.MaxSecLevel=0;
-				_variableGlobal.MaxError=0;
-				_variableGlobal.LevelText="легкий";
-				_view.ProgreesBarTimeVisible=false;
+			if (_variableGlobal.Level == 0) {
+				_variableGlobal.MaxSecLevel = 0;
+				_variableGlobal.MaxError = 0;
+				_variableGlobal.LevelText = "легкий";
+				_view.ProgreesBarTimeVisible = false;
 			}
 			
-			if(_variableGlobal.Level==1){
-				_variableGlobal.MaxSecLevel=10;
-				_variableGlobal.MaxError=10;
-				_variableGlobal.LevelText="средний";
-				_view.ProgressBarTimeMaxValue=10*_variableGlobal.levelMultiplier;
-				_variableGlobal.SecLevel=10*_variableGlobal.levelMultiplier;
+			if (_variableGlobal.Level == 1) {
+				_variableGlobal.MaxSecLevel = 10;
+				_variableGlobal.MaxError = 10;
+				_variableGlobal.LevelText = "средний";
+				_view.ProgressBarTimeMaxValue = 10 * _variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel = 10 * _variableGlobal.levelMultiplier;
 			}
 			
-			if(_variableGlobal.Level==2){
-				_variableGlobal.MaxSecLevel=5;
-				_variableGlobal.MaxError=3;
-				_variableGlobal.LevelText="сложный";
-				_view.ProgressBarTimeMaxValue=5*_variableGlobal.levelMultiplier;
-				_variableGlobal.SecLevel=5*_variableGlobal.levelMultiplier;
+			if (_variableGlobal.Level == 2) {
+				_variableGlobal.MaxSecLevel = 5;
+				_variableGlobal.MaxError = 3;
+				_variableGlobal.LevelText = "сложный";
+				_view.ProgressBarTimeMaxValue = 5 * _variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel = 5 * _variableGlobal.levelMultiplier;
 			}
 			
-			if(_variableGlobal.Level==3){
-				_variableGlobal.MaxSecLevel=3;
-				_variableGlobal.MaxError=1;
-				_variableGlobal.LevelText="Экстремальный";
-				_view.ProgressBarTimeMaxValue=3*_variableGlobal.levelMultiplier;
-				_variableGlobal.SecLevel=3*_variableGlobal.levelMultiplier;
+			if (_variableGlobal.Level == 3) {
+				_variableGlobal.MaxSecLevel = 3;
+				_variableGlobal.MaxError = 1;
+				_variableGlobal.LevelText = "Экстремальный";
+				_view.ProgressBarTimeMaxValue = 3 * _variableGlobal.levelMultiplier;
+				_variableGlobal.SecLevel = 3 * _variableGlobal.levelMultiplier;
 			}				
 		}
 			
@@ -830,26 +894,28 @@ public class Control{
 			_variableGlobal.FlagStart = _logic.FlagOnOff(_variableGlobal.FlagStart);					
 			
 				// Если флаг включен
-				if(_variableGlobal.FlagStart){
-					_variableGlobal.CountVisible=1;			
-					_view.ProgreesBarTimeVisible=true;
-					//Установки уровня сложности
-					SetLevelSetting();				
-					//Запуск таймера сложности
-					if(isLevel()) _view.TimerLevelEnable=true;					
-					//Текст кнопки
-					_view.ButtonStartText="Стоп";
-					_view.ButtonPausaEnable=true;
-					//изменяемый список индексов всех слов
-					LoadIndexAllWords();
-					//Вывод информации
-					StepLogika();
-					//Видимость
-					VisibleText(true);	
-					//Display();
-					//Установка картинки если путь задан
-					if(_view.ChekFoto)
-					_view.SetBackgroundImage(_view.DirFotoPath + "f"+_logic.RandNum(0,50) +".jpg");
+			if (_variableGlobal.FlagStart) {
+				_variableGlobal.CountVisible = 1;			
+				_view.ProgreesBarTimeVisible = true;
+				//Установки уровня сложности
+				SetLevelSetting();				
+				//Запуск таймера сложности
+				if (isLevel())
+					_view.TimerLevelEnable = true;					
+				//Текст кнопки
+				_view.ButtonStartText = "Стоп";
+				_view.ButtonPausaEnable = true;
+				//изменяемый список индексов всех слов
+				LoadIndexAllWords();
+				//Вывод информации
+				StepLogika();
+				//Видимость
+				VisibleText(true);
+				
+				//Display();
+				//Установка картинки если путь задан
+				if (_view.ChekFoto)
+					_view.SetBackgroundImage(_view.DirFotoPath + "f" + _logic.RandNum(0, 50) +".jpg");
 				}			
 			// Если флаг выклчен
 			else{
@@ -861,12 +927,12 @@ public class Control{
 		//Уровень сложности
 		void _view_E_Button_levelClick(object sender, EventArgs e)
 		{
-		_variableGlobal.Level =	_view.Level( _variableGlobal.Level);
-		//Установка максимального значения секунда для прогрессбара уровня
-		_variableGlobal.SecLevel=_variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
-		//Установка видимости прогрессбара
-		_view.ProgreesBarTimeVisible=true;
-		SetLevelSetting();
+			_variableGlobal.Level =	_view.Level(_variableGlobal.Level);
+			//Установка максимального значения секунда для прогрессбара уровня
+			_variableGlobal.SecLevel = _variableGlobal.MaxSecLevel * _variableGlobal.levelMultiplier;
+			//Установка видимости прогрессбара
+			_view.ProgreesBarTimeVisible = true;
+			SetLevelSetting();
 		_view.LevelText= _variableGlobal.LevelText;
 		}	
 			

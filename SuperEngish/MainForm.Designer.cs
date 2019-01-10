@@ -107,6 +107,18 @@ namespace SuperEngish
 		private System.Windows.Forms.Button button_save;
 		private System.Windows.Forms.TabPage tabPage_rezult;
 		private System.Windows.Forms.Button button2_stop;
+		private System.Windows.Forms.Button button2;
+		public System.Windows.Forms.ColumnHeader file;
+		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+		private System.Windows.Forms.TextBox textBox1;
+		//private System.Windows.Forms.Button button2;
+		//private System.Windows.Forms.ListView listView1;
+		//private System.Windows.Forms.ColumnHeader file;
+		
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -132,6 +144,9 @@ namespace SuperEngish
 			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage_setting = new System.Windows.Forms.TabPage();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.listView1 = new System.Windows.Forms.ListView();
+			this.file = new System.Windows.Forms.ColumnHeader();
 			this.button2_stop = new System.Windows.Forms.Button();
 			this.button_load = new System.Windows.Forms.Button();
 			this.button_save = new System.Windows.Forms.Button();
@@ -208,11 +223,12 @@ namespace SuperEngish
 			this.button_pausa = new System.Windows.Forms.Button();
 			this.button_start = new System.Windows.Forms.Button();
 			this.button_close = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabPage_ph = new System.Windows.Forms.TabPage();
 			this.tabPage_pr = new System.Windows.Forms.TabPage();
 			this.tabPage_test = new System.Windows.Forms.TabPage();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.button_testVar = new System.Windows.Forms.Button();
 			this.button_testStart = new System.Windows.Forms.Button();
 			this.textBox_nextIndex = new System.Windows.Forms.TextBox();
@@ -223,6 +239,10 @@ namespace SuperEngish
 			this.timer_var = new System.Windows.Forms.Timer(this.components);
 			this.timer_start = new System.Windows.Forms.Timer(this.components);
 			this.timer_time = new System.Windows.Forms.Timer(this.components);
+			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.tabPage_setting.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -257,6 +277,8 @@ namespace SuperEngish
 			// 
 			// tabPage_setting
 			// 
+			this.tabPage_setting.Controls.Add(this.textBox1);
+			this.tabPage_setting.Controls.Add(this.listView1);
 			this.tabPage_setting.Controls.Add(this.button2_stop);
 			this.tabPage_setting.Controls.Add(this.button_load);
 			this.tabPage_setting.Controls.Add(this.button_save);
@@ -272,6 +294,33 @@ namespace SuperEngish
 			this.tabPage_setting.TabIndex = 3;
 			this.tabPage_setting.Text = "Настройки";
 			this.tabPage_setting.UseVisualStyleBackColor = true;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(549, 260);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(100, 20);
+			this.textBox1.TabIndex = 14;
+			// 
+			// listView1
+			// 
+			this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
+			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.file});
+			this.listView1.Location = new System.Drawing.Point(771, 7);
+			this.listView1.MultiSelect = false;
+			this.listView1.Name = "listView1";
+			this.listView1.Size = new System.Drawing.Size(271, 253);
+			this.listView1.TabIndex = 13;
+			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.listView1.View = System.Windows.Forms.View.SmallIcon;
+			this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1SelectedIndexChanged);
+			// 
+			// file
+			// 
+			this.file.Text = "file";
+			this.file.Width = 149;
 			// 
 			// button2_stop
 			// 
@@ -529,9 +578,14 @@ namespace SuperEngish
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
-			this.dataGridView1.Location = new System.Drawing.Point(680, 15);
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.Column2,
+			this.Column3,
+			this.Column4,
+			this.Column5});
+			this.dataGridView1.Location = new System.Drawing.Point(771, 266);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(348, 266);
+			this.dataGridView1.Size = new System.Drawing.Size(268, 266);
 			this.dataGridView1.TabIndex = 5;
 			// 
 			// groupBox2
@@ -684,7 +738,6 @@ namespace SuperEngish
 			this.tabPage_w.Controls.Add(this.button_pausa);
 			this.tabPage_w.Controls.Add(this.button_start);
 			this.tabPage_w.Controls.Add(this.button_close);
-			this.tabPage_w.Controls.Add(this.button1);
 			this.tabPage_w.Controls.Add(this.pictureBox1);
 			this.tabPage_w.Location = new System.Drawing.Point(4, 22);
 			this.tabPage_w.Name = "tabPage_w";
@@ -1012,17 +1065,6 @@ namespace SuperEngish
 			this.button_close.UseVisualStyleBackColor = true;
 			this.button_close.Click += new System.EventHandler(this.Button_closeClick);
 			// 
-			// button1
-			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(986, 373);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(50, 23);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "test";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
-			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1055,6 +1097,8 @@ namespace SuperEngish
 			// 
 			// tabPage_test
 			// 
+			this.tabPage_test.Controls.Add(this.button1);
+			this.tabPage_test.Controls.Add(this.button2);
 			this.tabPage_test.Controls.Add(this.button_testVar);
 			this.tabPage_test.Controls.Add(this.button_testStart);
 			this.tabPage_test.Controls.Add(this.textBox_nextIndex);
@@ -1067,6 +1111,27 @@ namespace SuperEngish
 			this.tabPage_test.TabIndex = 4;
 			this.tabPage_test.Text = "Тестовая";
 			this.tabPage_test.UseVisualStyleBackColor = true;
+			this.tabPage_test.Click += new System.EventHandler(this.TabPage_testClick);
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(989, 351);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(50, 23);
+			this.button1.TabIndex = 14;
+			this.button1.Text = "test";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(583, 212);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 13;
+			this.button2.Text = "button2";
+			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// button_testVar
 			// 
@@ -1124,7 +1189,7 @@ namespace SuperEngish
 			// 
 			this.label_test.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label_test.AutoSize = true;
-			this.label_test.Location = new System.Drawing.Point(905, 346);
+			this.label_test.Location = new System.Drawing.Point(955, 389);
 			this.label_test.Name = "label_test";
 			this.label_test.Size = new System.Drawing.Size(13, 13);
 			this.label_test.TabIndex = 4;
@@ -1154,6 +1219,30 @@ namespace SuperEngish
 			this.timer_time.Interval = 10;
 			this.timer_time.Tick += new System.EventHandler(this.Timer_timeTick);
 			// 
+			// Column2
+			// 
+			this.Column2.HeaderText = "W";
+			this.Column2.Name = "Column2";
+			this.Column2.Width = 21;
+			// 
+			// Column3
+			// 
+			this.Column3.HeaderText = "Tr";
+			this.Column3.Name = "Column3";
+			this.Column3.Width = 21;
+			// 
+			// Column4
+			// 
+			this.Column4.HeaderText = "W2";
+			this.Column4.Name = "Column4";
+			this.Column4.Width = 21;
+			// 
+			// Column5
+			// 
+			this.Column5.HeaderText = "pos";
+			this.Column5.Name = "Column5";
+			this.Column5.Width = 21;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1169,6 +1258,7 @@ namespace SuperEngish
 			this.Resize += new System.EventHandler(this.MainFormResize);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage_setting.ResumeLayout(false);
+			this.tabPage_setting.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox6.ResumeLayout(false);
@@ -1188,5 +1278,5 @@ namespace SuperEngish
 			this.ResumeLayout(false);
 
 		}
-		}
 	}
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 
 //using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Media;
 //using NAudio.Wave;
-
+//using WMPlib;
 
 
 
@@ -87,7 +88,8 @@ namespace SuperEngish
 		public event EventHandler RadioButtonDialogLevel2Cheked;
 		public event EventHandler RadioButtonDialogLevel3Cheked;
 		public event EventHandler RadioButtonDialogLevel4Cheked;
-		
+
+		public event EventHandler E_ListView1SelectedIndexChanged;
 		public event EventHandler E_RadioButton_level4CheckedChanged;	
 		
 		public int TabControl1SelectedIndex {get {return tabControl1.SelectedIndex;	} set {tabControl1.SelectedIndex=value;}	}
@@ -123,8 +125,12 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 		//Видимость текста
 		public bool LabelWordEnable {	set {label_w.Visible=value;}		}
 		public bool LabelTransEnable {	set {label_tr.Visible=value;}		}
-		public bool LabelVar1Enable {	set {label_v1.Visible=value;}		}
-		public bool LabelVar2Enable {	set {label_v2.Visible=value;}		}
+		
+		public bool LabelVar1Visible {	set {label_v1.Visible=value;}		}
+		public bool LabelVar2Visible {	set {label_v2.Visible=value;}		}
+
+		public bool LabelVar1Enable { set { label_v1.Enabled=value;		}		}
+		public bool LabelVar2Enable {set {	label_v2.Enabled=value;		}		}		
 		public bool ButtonPausaEnable {	set {button_pausa.Enabled=value;}		}		
 		//тестовое поле
 		public string TestText {set { label_test.Text =value ;	}}
@@ -164,7 +170,10 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 		public string SetVar1 		{ set { label_v1.Text=value;} get {return  label_v1.Text;} 	}
 		//--------------Вставка слов-----------------------------------
 		public string SetVar2 		{ set {label_v2.Text=value;} get {return  label_v2.Text;}}
-		
+		//--------------Видимость 1 варианта-----------------------------------
+		public bool  SetVar1Visible { get{return label_v1.Visible ; } set{ label_v1.Visible = value;} }		
+		//--------------Видимость 2 варианта-----------------------------------
+		public bool  SetVar2Visible { get{return label_v2.Visible ; } set{ label_v2.Visible = value;} }
 		//----------таймер варианта------------------------------------
 		public bool SetTimerVarEnable { set {timer_var.Enabled = value;} }
 		//--------------------------------------------------------------
@@ -177,23 +186,33 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 
 	
 	#region Работа с таблицами
-	
-		public void addGrids(string[][] allStroka){				
-				foreach (var stroka in allStroka) { addGridParam(stroka); }
+
+			
+		public void addGrids(string[][] allStroka){		
+//			var Grid= dataGridView1;
+//			var  checkBoxColumn =  new DataGridViewCheckBoxColumn();
+
+				foreach (var stroka in allStroka) { addGridParam(stroka);}
 			}
 	
 		public void addGridParam(string[] readStroka){
+			
 			DataGridView Grid= dataGridView1;
+
+			
 		//пока столбцов не будет достаточное количество добавляем их
 		while (readStroka.Length > Grid.ColumnCount)
 		{
 		//если колонок нехватает добавляем их пока их будет хватать
 		Grid.Columns.Add("", "");
-		}
-		//заполняем строку
-		Grid.Rows.Add(readStroka);
-	}	
 	
+		}
+		
+
+		Grid.Rows.Add(readStroka[0], readStroka[1],readStroka[2],readStroka[3]);
+
+	}	
+
 		public void dataGridView1RowsClear()
 		{
 			dataGridView1.Rows.Clear();
@@ -386,13 +405,61 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 		//============ ТЕСТОВЫЕ КНОПКИ =================================
 		void Button1Click(object sender, EventArgs e)
 		{
-			//Относительный путь
-			string path = Environment.CurrentDirectory + @"\media\tada.wav";
-
-			SoundPlayer media = new SoundPlayer(path);
+			string path="";
+//			//Относительный путь
+//			string path = Environment.CurrentDirectory + @"\media\tada.wav";
+//
+//			SoundPlayer media = new SoundPlayer(path);
+//			
+//			media.Play();
+			FolderBrowserDialog fbd = new FolderBrowserDialog();
 			
-			media.Play();
-
+			if(fbd.ShowDialog()== DialogResult.OK)
+				path = fbd.SelectedPath;			
+			
+//			OpenFileDialog ofd =  new OpenFileDialog();
+			
+//			if(ofd.ShowDialog== DialogResult.OK ){				
+//			}
+//			ofd.SafeFileNames;
+			
+			//string path = textBox1.Text;
+            // получаем все файлы
+            string[] files = Directory.GetFiles(path);
+            // перебор полученных файлов
+            foreach(string file in files)
+            {
+                //ListViewItem lvi = new ListViewItem();
+                // установка названия файла
+               // lvi.Text = file.Remove(0, file.LastIndexOf('\\') + 1);
+               // lvi.ImageIndex = 0; // установка картинки для файла
+                // добавляем элемент в ListView
+                listView1.Items.Add(file.Remove(0, file.LastIndexOf('\\') + 1));
+                
+            }
+		}
+		
+		public string GetItemListView(){
+			int count = listView1.SelectedIndices.Count;
+			
+			if(count !=0) return listView1.SelectedItems[0].SubItems[0].Text;
+			return "";
+		}
+		
+		public void SetListFilesListView(string path){
+			// получаем все файлы
+            string[] files = Directory.GetFiles(path);
+            // перебор полученных файлов
+            foreach(string file in files)
+            {
+                //ListViewItem lvi = new ListViewItem();
+                // установка названия файла
+               // lvi.Text = file.Remove(0, file.LastIndexOf('\\') + 1);
+               // lvi.ImageIndex = 0; // установка картинки для файла
+                // добавляем элемент в ListView
+                listView1.Items.Add(file.Remove(0, file.LastIndexOf('\\') + 1));
+            }
+			
 		}
 		
 		public int Level(int level){
@@ -561,7 +628,7 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 		//Выход из программы
 		void Button_closeClick(object sender, EventArgs e)
 		{
-			this.Close();	
+			Close();	
 		}
 		
 		//Уровни		
@@ -603,6 +670,15 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
 		void Button2_stopClick(object sender, EventArgs e)
 		{
 	
+		}
+		void TabPage_testClick(object sender, EventArgs e)
+		{
+	
+		}
+		void ListView1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			textBox1.Text=	listView1.SelectedIndices.Count.ToString();
+			if ( E_ListView1SelectedIndexChanged !=null) E_ListView1SelectedIndexChanged (this, EventArgs.Empty );
 		}	
 
     }
@@ -644,8 +720,13 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
         //видимость текста
         bool LabelWordEnable {set;}
         bool LabelTransEnable {set;}
+        
+        bool LabelVar1Visible {set;}
+        bool LabelVar2Visible {set;}
+        
         bool LabelVar1Enable {set;}
         bool LabelVar2Enable {set;}
+        
         bool ButtonPausaEnable {set;}
         bool Label_unknown_Visible  {set;}
         
@@ -669,6 +750,8 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
         string SetTranslate{set;}
         string SetVar1{set;}
         string SetVar2{set;}
+        bool  SetVar1Visible {get;set;}
+        bool  SetVar2Visible {get;set;}
         
         Color  SetColorV1 {set;}
         Color SetColorV2{set;}
@@ -694,6 +777,8 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
         void ShowFormError(string word, string translate, string otvet);
         int Level(int level);
         void SetBackgroundImage(string filePath);
+        void SetListFilesListView(string path);
+        string GetItemListView();
         
         //События для управляющего кода  
         event EventHandler E_Button_selectDirWordsPathClick;
@@ -730,6 +815,7 @@ public bool RadioButton_level4 {get {return radioButton_level4.Checked;}	set {if
         event EventHandler RadioButtonDialogLevel2Cheked;
         event EventHandler RadioButtonDialogLevel3Cheked;
         event EventHandler RadioButtonDialogLevel4Cheked;
+        event EventHandler E_ListView1SelectedIndexChanged;
         
     }
 }

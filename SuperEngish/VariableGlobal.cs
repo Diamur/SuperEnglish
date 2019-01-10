@@ -2,10 +2,13 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace SuperEngish
 {
 	public interface IVariableGlobal
-	{
+	{ 
+		
+		
 		//ПОЛЯ
 		//Уровень сложности
 		int Level{get;set;}
@@ -103,6 +106,7 @@ namespace SuperEngish
 				//Tuple <int,string,string,string,bool> dict = new Tuple<int, string, string, string, bool>(,,,,);
 		//List<Tuple<int,string,string,string,bool>> dict = new List<Tuple<int, string, string, string, bool>>();
 		#endregion
+		
 		int _maxSecLevel=0;
 		int _maxError=0;
 		
